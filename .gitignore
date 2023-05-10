@@ -1,0 +1,12 @@
+coverage.xml
+__pycache__
+dist/
+*.pyc
+.venv/
+.coverage
+.pytest_cache/
+.idea/
+venv/
+.flaskenv
+.env/
+.env
