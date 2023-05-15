@@ -1,0 +1,61 @@
+{% extends 'navbar.html' %}
+
+{% block content %}
+<body class="bg-light">
+    <div class="col-md-8 order-md-1 container py-5">
+      <h1 class="mb-3">Регистрация</h1>
+      <form class="needs-validation" novalidate>
+        <div class="row">
+
+          <div class="col-md-6 mb-3">
+            <label for="id_first_name">Имя</label>
+            <input type="text" class="form-control" id="id_first_name" placeholder="Имя" value="" required>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label for="id_last_name">Фамилия</label>
+            <input type="text" class="form-control" id="id_last_name" placeholder="Фамилия" value="" required>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="id_username">Имя пользователя</label>
+          <div class="input-group">
+            <input type="text" class="form-control" id="id_username" placeholder="Имя пользователя" required>
+            <small class="text-muted">Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./+/-/_.</small>
+            <div class="invalid-feedback">
+              Введённый пароль слишком короткий. Он должен содержать как минимум 3 символа.
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="id_password">Пароль</label>
+            <input type="password" name="password" class="form-control" id="id_password" placeholder="Имя пользователя" required>
+            <small class="form-text text-muted">
+              Ваш пароль должен содержать как минимум 3 символа.
+            </small>
+            <div class="invalid-feedback">
+              Введённый пароль слишком короткий. Он должен содержать как минимум 3 символа.
+            </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="id_password2">Подтверждение пароля</label>
+            <input type="password" name="password2" class="form-control" id="id_password2" placeholder="Подтверждение пароля" required="">
+            <small class="form-text text-muted">
+              Для подтверждения введите, пожалуйста, пароль ещё раз.
+            </small>
+            <div class="invalid-feedback">
+              Введенные пароли не совпадают.
+            </div>
+        </div>
+
+      <div class="input-group">
+        <hr class="mb-4">
+        <button class="btn btn-primary btn-lg btn-block" type="submit">Зарегистрировать</button>
+      </div>
+      </form>
+    </div>
+  </body>
+{% endblock %}

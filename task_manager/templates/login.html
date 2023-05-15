@@ -1,0 +1,28 @@
+{% extends 'navbar.html' %}
+
+{% block content %}
+<body class="bg-light">
+    <div class="col-md-8 order-md-1 container py-5">
+      <h1 class="mb-3">Вход</h1>
+      <form class="needs-validation" novalidate>
+        <div class="row">
+
+          <div class="col-md-6 mb-3">
+            <label for="id_first_name">Имя пользователя</label>
+            <input type="text" class="form-control" id="id_first_name" placeholder="Имя пользователя" value="" required>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label for="id_last_name">Пароль</label>
+            <input type="text" class="form-control" id="id_last_name" placeholder="Пароль" value="" required>
+          </div>
+        </div>
+
+      <div class="input-group">
+        <hr class="mb-4">
+        <button class="btn btn-primary btn-lg btn-block" type="submit">Войти</button>
+      </div>
+      </form>
+    </div>
+  </body>
+{% endblock %}
