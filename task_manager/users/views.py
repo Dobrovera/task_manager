@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from django.views.decorators.http import require_http_methods
 from task_manager.users.models import User
@@ -24,3 +24,11 @@ class UserList(View):
 @require_http_methods(["GET", "POST"])
 def users(request):
     return render(request, 'users.html', context={})
+
+class Update(View):
+
+    def get(self, request, *args, **kwargs):
+        users = get_object_or_404(User, id=kwargs['id'])
+        return render(request, 'update.html', context={
+            'users': users,
+        })

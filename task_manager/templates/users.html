@@ -2,12 +2,30 @@
 
 {% block content %}
 
-<h1>Пользователи</h1>
-{% for user in users %}
-<ul>
-    <li>{{user.id}}</li>
-    <li>{{user.first_name}}</li>
-    <li>{{user.last_name}}</li>
-</ul>
-{% endfor %}
+<body class="bg-light">
+  <div class="container wrapper flex-grow-1">
+      <h1 class="my-4">Пользователи</h1>
+        <table class="table table-striped">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">id</th>
+              <th scope="col">Имя пользователя</th>
+              <th scope="col">Полное имя</th>
+              <th scope="col">Дата содания</th>
+              <th scope="col">.</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for user in users %}
+            <tr>
+              <th scope="row">{{ user.id }}</th>
+              <td>{{ user.username }}</td>
+              <td>{{ user.first_name }} {{ user.last_name }}</td>
+              <td>{{ user.created_at }}</td>
+              <td>Тут будет кнопка</td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+</body>
 {% endblock %}

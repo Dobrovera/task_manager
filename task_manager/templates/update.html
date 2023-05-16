@@ -3,25 +3,25 @@
 {% block content %}
 <body class="bg-light">
     <div class="col-md-8 order-md-1 container py-5">
-      <h1 class="mb-3">Регистрация</h1>
+      <h1 class="mb-3">Изменение пользователя</h1>
       <form class="needs-validation" novalidate>
         <div class="row">
 
           <div class="col-md-6 mb-3">
             <label for="id_first_name">Имя</label>
-            <input type="text" class="form-control" id="id_first_name" placeholder="Имя" value="" required>
+            <input type="text" class="form-control" id="id_first_name" placeholder="Имя" value={{ users.first_name }}>
           </div>
 
           <div class="col-md-6 mb-3">
             <label for="id_last_name">Фамилия</label>
-            <input type="text" class="form-control" id="id_last_name" placeholder="Фамилия" value="" required>
+            <input type="text" class="form-control" id="id_last_name" placeholder="Фамилия" value={{ users.last_name }}>
           </div>
         </div>
 
         <div class="mb-3">
           <label for="id_username">Имя пользователя</label>
           <div class="input-group">
-            <input type="text" class="form-control" id="id_username" placeholder="Имя пользователя" required>
+            <input type="text" class="form-control" id="id_username" placeholder="Имя пользователя" value={{ users.username }}>
             <small class="text-muted">Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./+/-/_.</small>
             <div class="invalid-feedback">
               Введённый пароль слишком короткий. Он должен содержать как минимум 3 символа.
