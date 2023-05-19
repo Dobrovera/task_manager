@@ -4,24 +4,19 @@
 <body class="bg-light">
     <div class="col-md-8 order-md-1 container py-5">
       <h1 class="mb-3">Вход</h1>
-      {% if massages %}
-      <ul class="messages">
-        {% for message in messages %}
-        <li {% if message.tags %} class="{{ message.tags }}"{% endif %}> {{ message }}</li>
-        {% endfor %}
-      </ul>
-      {% endif %}
-      <form method="post" class="needs-validation" novalidate>
-        {% csrf_token %}
+      <form class="needs-validation" novalidate>
         <div class="row">
+        <form method="post">
+          {% csrf_token %}
+          {{ form.ap_p }}
           <div class="col-md-6 mb-3">
             <label for="id_username">Имя пользователя</label>
-            <input type="text" class="form-control" name="username" id="id_username" placeholder="Имя пользователя" value="" required>
+            <input type="text" name="username" class="form-control" id="id_username" placeholder="Имя пользователя" value="" required>
           </div>
 
           <div class="col-md-6 mb-3">
             <label for="id_password">Пароль</label>
-            <input type="text" class="form-control" name="password" id="id_password" placeholder="Пароль" value="" required>
+            <input type="text" name="password" class="form-control" id="id_password" placeholder="Пароль" value="" required>
           </div>
         </div>
 
@@ -29,6 +24,9 @@
           <hr class="mb-4">
           <button class="btn btn-primary btn-lg btn-block" type="submit">Войти</button>
         </div>
+
+        {{ form.errors }}
+
       </form>
     </div>
   </body>
