@@ -7,13 +7,19 @@
     {% load static %}
 
 {% block content %}
-<main role="main">
-
+    {% if messages %}
+        {% for msg in messages %}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">x</button>
+              {{msg}}
+            </div>
+        {% endfor %}
+    {% endif %}
   <!-- Main jumbotron for a primary marketing message or call to action -->
-  <div class="jumbotron">
-    <div class="container">
-      <h1 class="display-3">Привет от Хекслета!</h1>
-      <p>Практические курсы по программированию</p>
+    <div class="container p-2">
+      <div class="jumbotron mt-4">
+      <h1>Привет от Хекслета!</h1>
+      <p class="lead">Практические курсы по программированию</p>
       <p><a class="btn btn-primary btn-lg" href="https://ru.hexlet.io" role="button">Узнать больше</a></p>
     </div>
   </div>

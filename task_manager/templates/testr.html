@@ -9,19 +9,19 @@
         <div class="row">
           <div class="col-md-6 mb-3">
             <label for="id_first_name">Имя</label>
-            <input type="text" name="first_name" class="form-control is-valid" id="id_first_name" placeholder="Имя" value="" required="">
+            {{ form.first_name }}
           </div>
 
           <div class="col-md-6 mb-3">
             <label for="id_last_name">Фамилия</label>
-            <input type="text" name="last_name" class="form-control is-valid" id="id_last_name" placeholder="Фамилия" value="" required>
+            {{ form.last_name }}
           </div>
         </div>
 
         <div class="mb-3">
           <label for="id_username">Имя пользователя</label>
           <div class="input-group">
-            <input type="text" name="username" class="form-control is-valid" id="id_username" placeholder="Имя пользователя" required>
+            {{ form.username }}
             <small class="text-muted">Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./+/-/_.</small>
             <div class="invalid-feedback">
               Введённый пароль слишком короткий. Он должен содержать как минимум 3 символа.
@@ -31,7 +31,7 @@
 
         <div class="mb-3">
           <label for="id_password">Пароль</label>
-            <input type="password" name="password" class="form-control is-valid" id="id_password" placeholder="Пароль" required>
+          {{ form.password }}
             <small class="form-text text-muted">
               Ваш пароль должен содержать как минимум 3 символа.
             </small>
@@ -42,7 +42,7 @@
 
         <div class="mb-3">
           <label for="id_password2">Подтверждение пароля</label>
-            <input type="password" name="password2" class="form-control is-valid" id="id_password2" placeholder="Подтверждение пароля" required="">
+          {{ form.password2 }}
             <small class="form-text text-muted">
               Для подтверждения введите, пожалуйста, пароль ещё раз.
             </small>

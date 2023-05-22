@@ -7,6 +7,7 @@ from django.utils.translation import gettext_lazy
 from django.contrib.auth import authenticate, login, logout
 from task_manager.views import index
 
+from .forms import SignUpForm, TestForm
 
 class UserList(View):
 
@@ -36,13 +37,14 @@ def login_view(request):
             login(request, user)
             messages.success(request, 'Вы залогинены')
             print('ЗАЛОГИНЕНО')
-            return render(request, 'index.html')
+            return redirect(index)
         else:
-            messages.warning(request, 'Пожалуйста, введите правильные имя пользователя и пароль.'
+            messages.warning(request, 'Пожалуйста, введите правильные имя пользователя и пароль. '
                                       'Оба поля могут быть чувствительны к регистру.')
             return render(request, 'login.html')
     else:
         return render(request, 'login.html')
+
 
 @require_http_methods(["GET", "POST"])
 def create_view(request):
@@ -73,3 +75,38 @@ def create_view(request):
 def logout_view(request):
     logout(request)
     return redirect(index)
+
+def test(request):
+    form = SignUpForm(request.POST)
+    if form.is_valid():
+        username = form.cleaned_data.get('username')
+        password = form.cleaned_data.get('password')
+        form.save()
+        new_user = authenticate(username=username, password=password)
+        if new_user is not None:
+            login(request, new_user)
+            redirect(index)
+        else:
+            redirect(login_view)
+    else:
+        form = SignUpForm()
+    return render(request, 'testr.html', context={'form': form})
+
+
+class TestView(View):
+    def get(self, request):
+        form = TestForm()
+        return render(request, "testr2.html", {"form": form})
+
+    def post(self, request):
+        form = TestForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            messages.add_message(
+                request, messages.SUCCESS, REGISTRATION_SUCCESS
+            )
+
+            return redirect(login_view)
+
+        return render(request, "testr2.html", {"form": form})

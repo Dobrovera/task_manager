@@ -10,6 +10,17 @@ python-versions = ">=3.7"
 tests = ["pytest", "pytest-asyncio", "mypy (>=0.800)"]
 
 [[package]]
+name = "babel"
+version = "2.12.1"
+description = "Internationalization utilities"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+pytz = {version = ">=2015.7", markers = "python_version < \"3.9\""}
+
+[[package]]
 name = "backports.zoneinfo"
 version = "0.2.1"
 description = "Backport of the standard library zoneinfo module"
@@ -93,12 +104,32 @@ setproctitle = ["setproctitle"]
 tornado = ["tornado (>=0.2)"]
 
 [[package]]
+name = "i18n"
+version = "0.2"
+description = "Simplify the development of internationalized applications"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+babel = "*"
+py = "*"
+
+[[package]]
 name = "mccabe"
 version = "0.7.0"
 description = "McCabe checker, plugin for flake8"
 category = "main"
 optional = false
 python-versions = ">=3.6"
+
+[[package]]
+name = "py"
+version = "1.11.0"
+description = "library with cross-python path, ini-parsing, io, code, log facilities"
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
 [[package]]
 name = "pycodestyle"
@@ -126,6 +157,14 @@ python-versions = ">=3.8"
 
 [package.extras]
 cli = ["click (>=5.0)"]
+
+[[package]]
+name = "pytz"
+version = "2023.3"
+description = "World timezone definitions, modern and historical"
+category = "main"
+optional = false
+python-versions = "*"
 
 [[package]]
 name = "soupsieve"
@@ -159,20 +198,27 @@ python-versions = ">=2"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8.2"
-content-hash = "c7fc4903bb495dc6e237c8b7a63baf46586872bf8bec729829c0b50fee2d1107"
+content-hash = "2e18ea73420790031ec53c3f142f9cd8858bf230ae034b86aefb1958cbb64bd8"
 
 [metadata.files]
 asgiref = []
+babel = []
 "backports.zoneinfo" = []
 beautifulsoup4 = []
 django = []
 django-bootstrap4 = []
 flake8 = []
 gunicorn = []
+i18n = []
 mccabe = []
+py = [
+    {file = "py-1.11.0-py2.py3-none-any.whl", hash = "sha256:607c53218732647dff4acdfcd50cb62615cedf612e72d1724fb1a0cc6405b378"},
+    {file = "py-1.11.0.tar.gz", hash = "sha256:51c75c4126074b472f746a24399ad32f6053d1b34b68d2fa41e558e6f4a98719"},
+]
 pycodestyle = []
 pyflakes = []
 python-dotenv = []
+pytz = []
 soupsieve = []
 sqlparse = []
 tzdata = []
