@@ -23,5 +23,5 @@ urlpatterns = [
     path('', views.index),
     path('admin/', admin.site.urls),
     path('users/', include('task_manager.users.urls')),
-    path('login/', login_view)
+    path('login/', LoginView.as_view())
 ]
