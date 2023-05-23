@@ -1,12 +1,12 @@
 {% extends "navbar.html" %}
 {% load i18n %}
 {% load bootstrap4 %}
-{% block title %}{% trans 'Sign In' %} {% endblock %}
 {% block content %}
-    <h1 class="mt-2">{% trans 'Sign In' %}</h1>
+ <div class="col-md-8 order-md-1 container py-5">
+    <h1 class="mt-1">{% trans 'Registration' %}</h1>
     <form action="." method="post">
         {% csrf_token %}
         {% bootstrap_form form %}
-         <button type="submit" class="btn btn-primary">{% trans 'Sign In' %}</button>
+        <button class="btn btn-primary btn-lg btn-block" type="submit">{% trans 'Registration' %}</button>
     </form>
 {% endblock %}

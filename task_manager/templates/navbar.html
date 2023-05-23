@@ -4,7 +4,7 @@
 {% bootstrap_javascript jquery='True' %}
 {% load i18n %}
 {% load static %}
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -43,18 +43,19 @@
   <div class="collapse navbar-collapse" id="navbarsExample01">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="/users">Пользователи</a>
+        <a class="nav-link" href="/users">{% trans 'Users' %}</a>
       </li>
         <li class="nav-item">
-        <a class="nav-link" href="/login">Вход</a>
+        <a class="nav-link" href="/login">{% trans 'Log in' %}</a>
         </li>
         </li>
         <li class="nav-item">
-        <a class="nav-link" href="/users/create">Регистрация</a>
+        <a class="nav-link" href="/users/create">{% trans 'Registration' %}</a>
         </li>
     </ul>
   </div>
 </nav>
+  </body>
     {% block content %}
     {% endblock %}
 </html>
