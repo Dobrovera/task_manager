@@ -2,8 +2,16 @@
 {% load i18n %}
 {% load bootstrap4 %}
 {% block content %}
+
 <body class="bg-light">
     <div class="col-md-8 order-md-1 container py-5">
+      {% if messages %}
+      {% for message in messages %}
+       <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+         {{message}}
+       <button type="button" class="close" data-dismiss="alert" aria-label="Close">x</div>
+       {% endfor %}
+       {% endif %}
       <h1 class="mb-3">{% trans 'Log in' %}</h1>
       <form action="" method="post">
         {% csrf_token %}

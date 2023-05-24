@@ -1,27 +1,26 @@
 {% extends 'navbar.html' %}
 
-    {% load bootstrap4 %}
-    {% bootstrap_css %}
-    {% bootstrap_javascript jquery='True' %}
-    {% load i18n %}
-    {% load static %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='True' %}
+{% load i18n %}
+{% load static %}
 
 {% block content %}
-    {% if messages %}
-        {% for msg in messages %}
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-              <button type="button" class="close" data-dismiss="alert" aria-label="Close">x</button>
-              {{msg}}
-            </div>
-        {% endfor %}
-    {% endif %}
-  <!-- Main jumbotron for a primary marketing message or call to action -->
+<body>
     <div class="container p-2">
+          {% if messages %}
+          {% for message in messages %}
+          <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+            {{message}}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">x</div>
+          {% endfor %}
+          {% endif %}
       <div class="jumbotron mt-4">
       <h1>Привет от Хекслета!</h1>
       <p class="lead">Практические курсы по программированию</p>
       <p><a class="btn btn-primary btn-lg" href="https://ru.hexlet.io" role="button">Узнать больше</a></p>
     </div>
   </div>
-
+</body>
 {% endblock %}

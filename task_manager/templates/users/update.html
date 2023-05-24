@@ -1,9 +1,9 @@
 {% extends 'navbar.html' %}
-
+{% load i18n %}
 {% block content %}
 <body class="bg-light">
     <div class="col-md-8 order-md-1 container py-5">
-      <h1 class="mb-3">Изменение пользователя</h1>
+      <h1 class="mb-3">{% trans 'User change' %}</h1>
       <form class="needs-validation" novalidate>
         <div class="row">
 
@@ -44,7 +44,7 @@
 
       <div class="input-group">
         <hr class="mb-4">
-        <button class="btn btn-primary btn-lg btn-block" type="submit">{% trans 'Sign up' %}</button>
+        <button class="btn btn-primary btn-lg btn-block" type="submit">{% trans 'Change' %}</button>
       </div>
       </form>
     </div>

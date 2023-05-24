@@ -1,9 +1,16 @@
 {% extends 'navbar.html' %}
-
+{% load i18n %}
 {% block content %}
 
 <body class="bg-light">
   <div class="container wrapper flex-grow-1">
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+      {{message}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">x</div>
+    {% endfor %}
+    {% endif %}
       <h1 class="my-4">Пользователи</h1>
         <table class="table table-striped">
           <thead class="thead-dark">
@@ -12,7 +19,7 @@
               <th scope="col">Имя пользователя</th>
               <th scope="col">Полное имя</th>
               <th scope="col">Дата содания</th>
-              <th scope="col">.</th>
+              <th scope="col"> </th>
             </tr>
           </thead>
           <tbody>
@@ -22,7 +29,12 @@
               <td>{{ user.username }}</td>
               <td>{{ user.first_name }} {{ user.last_name }}</td>
               <td>{{ user.date_joined }}</td>
-              <td>Тут будет кнопка</td>
+              <td>
+                <a href="{% url 'update' id=user.id %}">{% trans 'Update' %}</a>
+                    <br>
+                <a href="{% url 'delete' id=user.id %}">{% trans 'Delete' %}</a>
+              </td>
+
             </tr>
           {% endfor %}
           </tbody>

@@ -3,10 +3,17 @@
 {% load bootstrap4 %}
 {% block content %}
  <div class="col-md-8 order-md-1 container py-5">
-    <h1 class="mt-1">{% trans 'Registration' %}</h1>
+      {% if messages %}
+      {% for message in messages %}
+       <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+         {{message}}
+       <button type="button" class="close" data-dismiss="alert" aria-label="Close">x</div>
+       {% endfor %}
+       {% endif %}
+    <h1 class="mt-1">{% trans 'Sign Up' %}</h1>
     <form action="" method="post">
         {% csrf_token %}
         {% bootstrap_form form %}
-        <button class="btn btn-primary btn-lg btn-block" type="submit">{% trans 'Registration' %}</button>
+        <button class="btn btn-primary btn-lg btn-block" type="submit">{% trans 'Sign Up' %}</button>
     </form>
 {% endblock %}
