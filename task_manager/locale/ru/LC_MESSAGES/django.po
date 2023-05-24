@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-23 16:30+0300\n"
+"POT-Creation-Date: 2023-05-24 12:23+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,10 +20,11 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: task_manager/templates/login_new.html:7
+#: task_manager/templates/login.html:7 task_manager/templates/login.html:13
+#: task_manager/templates/navbar.html:65
 #, fuzzy
 #| msgid "Log In"
-msgid "Log In"
+msgid "Log in"
 msgstr "Вход"
 
 #: task_manager/templates/navbar.html:38
@@ -34,17 +35,29 @@ msgstr "Менеджер задач"
 msgid "Users"
 msgstr "Пользователи"
 
-#: task_manager/templates/navbar.html:49
+#: task_manager/templates/navbar.html:51
+msgid "Statuses"
+msgstr "Статусы"
+
+#: task_manager/templates/navbar.html:55
+msgid "Labels"
+msgstr "Метки"
+
+#: task_manager/templates/navbar.html:58
+msgid "Tasks"
+msgstr "Задачи"
+
+#: task_manager/templates/navbar.html:61
 #, fuzzy
 #| msgid "Log In"
-msgid "Log in"
+msgid "Log Out"
 msgstr "Вход"
 
-#: task_manager/templates/navbar.html:53
-#: task_manager/templates/users/create.html:6
-#: task_manager/templates/users/create.html:10
-msgid "Registration"
-msgstr "Рeгистрация"
+#: task_manager/templates/navbar.html:69
+#, fuzzy
+#| msgid "Sign In"
+msgid "Sign Up"
+msgstr "Регистрация"
 
 #: task_manager/templates/update.html:11
 msgid "Name"
@@ -72,6 +85,11 @@ msgstr "Подтверждение пароля"
 msgid "Sign up"
 msgstr "Регистрация"
 
+#: task_manager/templates/users/create.html:6
+#: task_manager/templates/users/create.html:10
+msgid "Registration"
+msgstr "Рeгистрация"
+
 #: task_manager/users/views.py:48
 msgid "User successfully registered"
 msgstr "Пользователь успешно зарегистрирован"
@@ -84,7 +102,9 @@ msgstr "Вы залогинены"
 msgid ""
 "Please enter the correct username and password. Both fields can be case "
 "sensitive."
-msgstr "Пожалуйста, введите правильные имя пользователя и пароль. Оба поля могут быть чувствительны к регистру. "
+msgstr ""
+"Пожалуйста, введите правильные имя пользователя и пароль. Оба поля могут "
+"быть чувствительны к регистру. "
 
 #~ msgid "Sign In"
 #~ msgstr "Вход"
