@@ -1,52 +1,19 @@
-{% extends 'navbar.html' %}
+{% extends "navbar.html" %}
 {% load i18n %}
+{% load bootstrap4 %}
 {% block content %}
-<body class="bg-light">
-    <div class="col-md-8 order-md-1 container py-5">
-      <h1 class="mb-3">{% trans 'User change' %}</h1>
-      <form class="needs-validation" novalidate>
-        <div class="row">
-
-          <div class="col-md-6 mb-3">
-            <label for="id_first_name">{% trans 'Name' %}</label>
-            <input type="text" class="form-control" id="id_first_name" placeholder="Имя" value={{ users.first_name }}>
-          </div>
-
-          <div class="col-md-6 mb-3">
-            <label for="id_last_name">{% trans 'Surname' %}</label>
-            <input type="text" class="form-control" id="id_last_name" placeholder="Фамилия" value={{ users.last_name }}>
-          </div>
-        </div>
-
-        <div class="mb-3">
-          <label for="id_username">{% trans 'username' %}</label>
-          <div class="input-group">
-            <input type="text" class="form-control" id="id_username" placeholder="Имя пользователя" value={{ users.username }}>
-            <small class="text-muted">Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./+/-/_.</small>
-          </div>
-        </div>
-
-        <div class="mb-3">
-          <label for="id_password">{% trans 'Password' %}</label>
-            <input type="password" name="password" class="form-control" id="id_password" placeholder="Пароль" required>
-            <small class="form-text text-muted">
-              Ваш пароль должен содержать как минимум 3 символа.
-            </small>
-        </div>
-
-        <div class="mb-3">
-          <label for="id_password2">{% trans 'Password confirmation' %}</label>
-            <input type="password" name="password2" class="form-control" id="id_password2" placeholder="Подтверждение пароля" required="">
-            <small class="form-text text-muted">
-              Для подтверждения введите, пожалуйста, пароль ещё раз.
-            </small>
-        </div>
-
-      <div class="input-group">
-        <hr class="mb-4">
-        <button class="btn btn-primary btn-lg btn-block" type="submit">{% trans 'Change' %}</button>
-      </div>
-      </form>
-    </div>
-  </body>
+ <div class="col-md-8 order-md-1 container py-5">
+      {% if messages %}
+      {% for message in messages %}
+       <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+         {{message}}
+       <button type="button" class="close" data-dismiss="alert" aria-label="Close">x</div>
+       {% endfor %}
+       {% endif %}
+    <h1 class="mt-1">{% trans 'Update user' %}</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <button class="btn btn-primary btn-lg btn-block" type="submit">{% trans 'Update user' %}</button>
+    </form>
 {% endblock %}
