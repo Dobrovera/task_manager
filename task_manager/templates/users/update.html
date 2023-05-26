@@ -10,10 +10,10 @@
        <button type="button" class="close" data-dismiss="alert" aria-label="Close">x</div>
        {% endfor %}
        {% endif %}
-    <h1 class="mt-1">{% trans 'Update user' %}</h1>
+    <h1 class="mt-1">{% trans 'User change' %}</h1>
     <form action="" method="post">
         {% csrf_token %}
         {% bootstrap_form form %}
-        <button class="btn btn-primary btn-lg btn-block" type="submit">{% trans 'Update user' %}</button>
+        <button class="btn btn-primary btn-lg btn-block" type="submit">{% trans 'Update' %}</button>
     </form>
 {% endblock %}

@@ -1,3 +1,6 @@
 from django.db import models
 
-# Create your models here.
+
+class Statuses(models.Model):
+    status_name = models.CharField(max_length=250)
+    created_at = models.DateTimeField(auto_now_add=True)

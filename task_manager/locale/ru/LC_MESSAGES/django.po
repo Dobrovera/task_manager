@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-24 21:33+0300\n"
+"POT-Creation-Date: 2023-05-26 18:52+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,10 +30,12 @@ msgid "Task manager"
 msgstr "Менеджер задач"
 
 #: task_manager/templates/navbar.html:46
+#: task_manager/templates/users/users.html:14
 msgid "Users"
 msgstr "Пользователи"
 
 #: task_manager/templates/navbar.html:51
+#: task_manager/templates/statuses/statuses.html:15
 msgid "Statuses"
 msgstr "Статусы"
 
@@ -57,6 +59,26 @@ msgstr "Выход"
 msgid "Sign Up"
 msgstr "Регистрация"
 
+#: task_manager/templates/statuses/statuses.html:20
+msgid "Name"
+msgstr "Имя"
+
+#: task_manager/templates/statuses/statuses.html:21
+#: task_manager/templates/users/users.html:21
+msgid "Date of creation"
+msgstr "Дата создания"
+
+#: task_manager/templates/statuses/statuses.html:32
+#: task_manager/templates/users/update.html:17
+#: task_manager/templates/users/users.html:33
+msgid "Update"
+msgstr "Изменить"
+
+#: task_manager/templates/statuses/statuses.html:34
+#: task_manager/templates/users/users.html:35
+msgid "Delete"
+msgstr "Удалить"
+
 #: task_manager/templates/users/delete.html:7
 msgid "Deleting a user"
 msgstr "Удаление пользователя"
@@ -69,41 +91,29 @@ msgstr "Вы уверены, что хотите удалить"
 msgid "Yes, delete"
 msgstr "Да, удалить"
 
-#: task_manager/templates/users/update.html:6
+#: task_manager/templates/users/update.html:13
 msgid "User change"
-msgstr "Пользователь изменен"
+msgstr "Изменение пользователя"
 
-#: task_manager/templates/users/update.html:11
-msgid "Name"
-msgstr "Имя"
-
-#: task_manager/templates/users/update.html:16
-msgid "Surname"
-msgstr "Фамилия"
-
-#: task_manager/templates/users/update.html:22
-msgid "username"
+#: task_manager/templates/users/users.html:19 task_manager/users/forms.py:26
+msgid "Username"
 msgstr "Имя пользователя"
 
-#: task_manager/templates/users/update.html:30
+#: task_manager/templates/users/users.html:20
+msgid "Full name"
+msgstr "Полное имя"
+
+#: task_manager/users/forms.py:32
 msgid "Password"
 msgstr "Пароль"
 
-#: task_manager/templates/users/update.html:38
+#: task_manager/users/forms.py:38
 msgid "Password confirmation"
 msgstr "Подтверждение пароля"
 
-#: task_manager/templates/users/update.html:47
-msgid "Change"
-msgstr ""
-
-#: task_manager/templates/users/users.html:33
-msgid "Update"
-msgstr "Изменить"
-
-#: task_manager/templates/users/users.html:35
-msgid "Delete"
-msgstr "Удалить"
+#: task_manager/users/forms.py:41
+msgid "Enter the same password as before, for verification."
+msgstr "Введите тот же пароль, что и раньше, для проверки."
 
 #: task_manager/users/views.py:35
 msgid "You are logged out"
@@ -125,12 +135,20 @@ msgstr ""
 "Пожалуйста, введите правильные имя пользователя и пароль. Оба поля могут "
 "быть чувствительны к регистру."
 
-#: task_manager/users/views.py:81 task_manager/users/views.py:98
+#: task_manager/users/views.py:81 task_manager/users/views.py:87
+#: task_manager/users/views.py:99 task_manager/users/views.py:102
+#: task_manager/users/views.py:112 task_manager/users/views.py:118
 msgid "You do not have rights to change another user."
 msgstr "У вас нет прав для изменения другого пользователя."
 
-#: task_manager/users/views.py:95
+#: task_manager/users/views.py:96
 #, fuzzy
 #| msgid "User successfully registered"
 msgid "User deleted successfully"
 msgstr "Пользователь успешно удален"
+
+#: task_manager/users/views.py:126
+#, fuzzy
+#| msgid "User successfully registered"
+msgid "User successfully updated"
+msgstr "Пользователь успешно изменен"
