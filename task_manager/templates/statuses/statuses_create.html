@@ -1,0 +1,20 @@
+{% extends 'navbar.html' %}
+{% load i18n %}
+{% load bootstrap4 %}
+{% block content %}
+<body class="bg-light">
+    <div class="col-md-8 order-md-1 container py-5">
+      <h1 class="mb-3">{% trans 'Create status' %}</h1>
+      <form class="needs-validation" novalidate method="post">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+          {% if text %}
+            <div class="invalid-feedback">{{ text }}</div>
+          {% endif %}
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">{% trans 'Create' %}</button>
+      </div>
+      </form>
+    </div>
+  </body>
+{% endblock %}
