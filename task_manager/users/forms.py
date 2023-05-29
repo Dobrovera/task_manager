@@ -48,7 +48,7 @@ class UpdateUserForm(UserChangeForm):
 
     def save(self, commit=True):
 
-    # написала костомный save, так как стандартный save базового класса UserChangeForm
+    # написала кастомный save, так как стандартный save базового класса UserChangeForm
     # вместо того, чтобы изменять юзера создавал нового юзера.
 
         user = User.objects.get(id=self.user_id)
@@ -66,6 +66,4 @@ class UpdateUserForm(UserChangeForm):
         fields = (
             "first_name",
             "last_name",
-            # "username",
-            # "password",
         )
