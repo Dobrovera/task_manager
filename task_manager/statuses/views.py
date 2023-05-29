@@ -15,6 +15,7 @@ class StatusesList(View):
             "statuses": statuses,
         })
 
+
 class CreateStatus(View):
 
     def get(self, request, *args, **kwargs):

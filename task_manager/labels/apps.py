@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class LablesConfig(AppConfig):
+class LabelsConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'lables'
+    name = 'task_manager.labels'

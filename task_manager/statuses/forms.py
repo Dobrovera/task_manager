@@ -16,12 +16,14 @@ class StatusesForm(forms.ModelForm):
             'status_name',
         )
 
+
 def valudate_already_exist(value):
     if value in Statuses.objects.all().values_list('status_name', flat=True):
         raise ValidationError(
             gettext("A task status with this name already exists"),
             params={"value": value},
         )
+
 
 class UpdateStatusForm(UserChangeForm):
     password = None

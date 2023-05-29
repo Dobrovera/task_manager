@@ -1,0 +1,43 @@
+{% extends 'navbar.html' %}
+{% load i18n %}
+{% block content %}
+
+<body class="bg-light">
+  <div class="container wrapper flex-grow-1">
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+      {{message}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">x</button>
+    </div>
+    {% endfor %}
+    {% endif %}
+      <h1 class="my-4">{% trans 'Labels' %}</h1>
+      <a href="{% url 'create_label' %}">{% trans 'Create label' %}</a>
+        <table class="table table-striped">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">id</th>
+              <th scope="col">{% trans 'Name' %}</th>
+              <th scope="col">{% trans 'Date of creation' %}</th>
+              <th scope="col"> </th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for label in labels %}
+            <tr>
+              <th scope="row">{{ label.id }}</th>
+              <td>{{ label.label_name }}</td>
+              <td>{{ label.created_at }}</td>
+              <td>
+                <a href="/labels">{% trans 'Update' %}</a>
+                    <br>
+                <a href="/labels">{% trans 'Delete' %}</a>
+              </td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+  </div>
+</body>
+{% endblock %}
