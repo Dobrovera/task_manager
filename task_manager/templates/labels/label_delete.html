@@ -1,10 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "navbar.html" %}
+{% load i18n %}
+{% load bootstrap4 %}
+{% block content %}
 
-</body>
-</html>
+<div class="col-md-8 order-md-1 container py-5">
+    <h1 class="mt-1">{% trans 'Deleting a label' %}</h1>
+        <p class="lead">{% trans 'Are you sure you want to delete' %} {{ label.label_name }}</p>
+    <form action="" method="post">
+        {% csrf_token %}
+        <button class="btn btn-danger" type="submit">{% trans 'Yes, delete' %}</button>
+    </form>
+{% endblock %}
