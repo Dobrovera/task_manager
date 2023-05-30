@@ -10,17 +10,23 @@ from django.utils.translation import gettext
 class StatusesList(View):
 
     def get(self, request, *args, **kwargs):
-        statuses = Statuses.objects.all()
-        return render(request, 'statuses/statuses.html', context={
-            "statuses": statuses,
-        })
+        if request.user.is_authenticated:
+            statuses = Statuses.objects.all()
+            return render(request, 'statuses/statuses.html', context={
+                "statuses": statuses,
+            })
+        messages.error(request, gettext('You are not authorized! Please sign in.'))
+        return redirect('/login')
 
 
 class CreateStatus(View):
 
     def get(self, request, *args, **kwargs):
-        form = StatusesForm()
-        return render(request, 'statuses/statuses_create.html', context={'form': form})
+        if request.user.is_authenticated:
+            form = StatusesForm()
+            return render(request, 'statuses/statuses_create.html', context={'form': form})
+        messages.error(request, gettext('You are not authorized! Please sign in.'))
+        return redirect('/login')
 
     def post(self, request, *args, **kwargs):
         form = StatusesForm(request.POST)
@@ -39,10 +45,14 @@ class CreateStatus(View):
 
 class DeleteStatus(View):
     def get(self, request, *args, **kwargs):
-        status = get_object_or_404(Statuses, id=kwargs['id'])
-        return render(request, 'statuses/status_delete.html', context={
-            "status": status
-        })
+        if request.user.is_authenticated:
+            status = get_object_or_404(Statuses, id=kwargs['id'])
+            return render(request, 'statuses/status_delete.html', context={
+                "status": status
+            })
+        messages.error(request, gettext('You are not authorized! Please sign in.'))
+        return redirect('/login')
+
     def post(self, request, *args, **kwargs):
         status = get_object_or_404(Statuses, id=kwargs['id'])
         status.delete()
@@ -52,13 +62,17 @@ class DeleteStatus(View):
 
 class UpdateStatus(View):
     def get(self, request, *args, **kwargs):
-        status = get_object_or_404(Statuses, id=kwargs['id'])
-        status_name = status.status_name
-        form = UpdateStatusForm(status.id, {"status_name": status_name})
-        return render(request, 'statuses/status_update.html', context={
-            "status": status,
-            "form": form,
-        })
+        if request.user.is_authenticated:
+            status = get_object_or_404(Statuses, id=kwargs['id'])
+            status_name = status.status_name
+            form = UpdateStatusForm(status.id, {"status_name": status_name})
+            return render(request, 'statuses/status_update.html', context={
+                "status": status,
+                "form": form,
+            })
+        messages.error(request, gettext('You are not authorized! Please sign in.'))
+        return redirect('/login')
+
     def post(self, request, *args, **kwargs):
         status = get_object_or_404(Statuses, id=kwargs['id'])
         form = UpdateStatusForm(status.id, request.POST)
