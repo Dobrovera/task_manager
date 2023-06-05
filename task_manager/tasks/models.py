@@ -9,5 +9,6 @@ class Task(models.Model):
     status = models.ForeignKey(Status, on_delete=models.PROTECT)
     executor = models.ForeignKey(User, on_delete=models.PROTECT, related_name='task_executor_user')
     labels = models.ManyToManyField(Label)
+    description = models.CharField(max_length=1000)
     name = models.CharField(max_length=250)
     created_at = models.DateTimeField(auto_now_add=True)
