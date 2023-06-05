@@ -3,11 +3,11 @@ from django.contrib.auth.forms import UserChangeForm
 from django.core.exceptions import ValidationError
 from django.utils.translation import gettext
 
-from .models import Labels
+from .models import Label
 
 
 def validate_already_exist(value):
-    if value in Labels.objects.all().values_list('label_name', flat=True):
+    if value in Label.objects.all().values_list('label_name', flat=True):
         raise ValidationError(
             gettext("A label with this name already exists"),
             params={"value": value},
@@ -26,7 +26,7 @@ class LabelsForm(forms.ModelForm):
     )
 
     class Meta:
-        model = Labels
+        model = Label
         fields = (
             'label_name',
         )
@@ -53,7 +53,7 @@ class UpdateLabelForm(UserChangeForm):
     # написала кастомный save, так как стандартный save базового класса
     # вместо того, чтобы изменять юзера создавал нового юзера.
 
-        label = Labels.objects.get(id=self.label_id)
+        label = Label.objects.get(id=self.label_id)
         label.label_name = self.cleaned_data.get('label_name')
         label.save()
         if hasattr(self, "save_m2m"):
@@ -61,7 +61,7 @@ class UpdateLabelForm(UserChangeForm):
         return label
 
     class Meta:
-        model = Labels
+        model = Label
         fields = (
             'label_name',
         )

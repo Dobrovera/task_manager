@@ -2,7 +2,7 @@ from django.contrib import messages
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils.translation import gettext
 from django.views import View
-from .models import Labels
+from .models import Label
 from .forms import LabelsForm, UpdateLabelForm
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
@@ -12,7 +12,7 @@ class LabelsListView(View):
 
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
-            labels = Labels.objects.all()
+            labels = Label.objects.all()
             return render(request, 'labels/labels.html', context={
                 "labels": labels,
             })
@@ -33,7 +33,7 @@ class LabelCreateView(View):
     def post(self, request, *args, **kwargs):
         form = LabelsForm(request.POST)
         if form.is_valid():
-            if form['label_name'].value() not in Labels.objects.values_list('label_name', flat=True).distinct():
+            if form['label_name'].value() not in Label.objects.values_list('label_name', flat=True).distinct():
                 form.save()
                 messages.success(request, gettext('Label created successfully'))
                 return redirect('/labels')
@@ -47,7 +47,7 @@ class LabelCreateView(View):
 class UpdateLabelView(View):
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
-            label = get_object_or_404(Labels, id=kwargs['id'])
+            label = get_object_or_404(Label, id=kwargs['id'])
             label_name = label.label_name
             form = UpdateLabelForm(label.id, {"label_name": label_name})
             return render(request, 'labels/label_update.html', context={
@@ -58,9 +58,9 @@ class UpdateLabelView(View):
         return redirect('/login')
 
     def post(self, request, *args, **kwargs):
-        label = get_object_or_404(Labels, id=kwargs['id'])
+        label = get_object_or_404(Label, id=kwargs['id'])
         form = UpdateLabelForm(label.id, request.POST)
-        if request.POST['label_name'] not in Labels.objects.all().values_list('label_name', flat=True):
+        if request.POST['label_name'] not in Label.objects.all().values_list('label_name', flat=True):
             if form.is_valid():
                 form.save()
                 messages.success(request, gettext('Label updated successfully'))
@@ -75,7 +75,7 @@ class UpdateLabelView(View):
 class DeleteLabelView(View):
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
-            label = get_object_or_404(Labels, id=kwargs['id'])
+            label = get_object_or_404(Label, id=kwargs['id'])
             return render(request, 'labels/label_delete.html', context={
                 "label": label
             })
@@ -83,7 +83,7 @@ class DeleteLabelView(View):
         return redirect('/login')
 
     def post(self, request, *args, **kwargs):
-        label = get_object_or_404(Labels, id=kwargs['id'])
+        label = get_object_or_404(Label, id=kwargs['id'])
         label.delete()
         messages.success(request, gettext('Label deleted successfully'))
         return redirect('/labels')
