@@ -33,6 +33,7 @@ class StatusesForm(forms.ModelForm):
 
 
 class UpdateStatusForm(UserChangeForm):
+
     password = None
 
     def __init__(self, status_id, *args, **kwargs):

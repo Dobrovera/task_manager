@@ -7,7 +7,7 @@
       <h1 class="mb-3">{% trans 'Create a task' %}</h1>
       <form class="needs-validation" novalidate method="post">
         {% csrf_token %}
-        {% bootstrap_form task_filter.form %}
+        {% bootstrap_form form %}
           {% if text %}
             <div class="invalid-feedback">{{ text }}</div>
           {% endif %}

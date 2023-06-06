@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-05 17:05+0300\n"
+"POT-Creation-Date: 2023-06-06 16:20+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -51,7 +51,7 @@ msgstr "Метка успешно удалена"
 msgid "A task status with this name already exists"
 msgstr "Статус задачи с таким именем уже существует"
 
-#: task_manager/statuses/forms.py:21 task_manager/statuses/forms.py:43
+#: task_manager/statuses/forms.py:21 task_manager/statuses/forms.py:44
 msgid "status_name"
 msgstr "Имя"
 
@@ -67,6 +67,44 @@ msgstr "Статус успешно удален"
 msgid "Status updated successfully"
 msgstr "Статус успешно изменен"
 
+#: task_manager/tasks/filters.py:12
+#, fuzzy
+#| msgid "A task status with this name already exists"
+msgid "A task with this name already exists"
+msgstr "Статус задачи с таким именем уже существует"
+
+#: task_manager/tasks/models.py:11 task_manager/templates/tasks/tasks.html:22
+msgid "Author"
+msgstr "Автор"
+
+#: task_manager/tasks/models.py:12 task_manager/templates/tasks/tasks.html:21
+msgid "Status"
+msgstr "Статус"
+
+#: task_manager/tasks/models.py:14 task_manager/templates/tasks/tasks.html:23
+msgid "Executor"
+msgstr "Исполнитель"
+
+#: task_manager/tasks/models.py:15
+#, fuzzy
+#| msgid "Labels"
+msgid "Label"
+msgstr "Метки"
+
+#: task_manager/tasks/models.py:16
+msgid "Description"
+msgstr "Описание"
+
+#: task_manager/tasks/models.py:17 task_manager/templates/labels/labels.html:21
+#: task_manager/templates/statuses/statuses.html:21
+#: task_manager/templates/tasks/tasks.html:20
+msgid "Name"
+msgstr "Имя"
+
+#: task_manager/tasks/models.py:18
+msgid "created_at"
+msgstr "Дата создания"
+
 #: task_manager/templates/labels/label_create.html:7
 #: task_manager/templates/labels/labels.html:16
 msgid "Create label"
@@ -74,6 +112,7 @@ msgstr "Создать метку"
 
 #: task_manager/templates/labels/label_create.html:12
 #: task_manager/templates/statuses/statuses_create.html:15
+#: task_manager/templates/tasks/task_create.html:15
 msgid "Create"
 msgstr "Создать"
 
@@ -112,12 +151,6 @@ msgstr "Изменить"
 msgid "Labels"
 msgstr "Метки"
 
-#: task_manager/templates/labels/labels.html:21
-#: task_manager/templates/statuses/statuses.html:21
-#: task_manager/templates/tasks/tasks.html:20
-msgid "Name"
-msgstr "Имя"
-
 #: task_manager/templates/labels/labels.html:22
 #: task_manager/templates/statuses/statuses.html:22
 #: task_manager/templates/tasks/tasks.html:24
@@ -148,12 +181,12 @@ msgstr "Пользователи"
 
 #: task_manager/templates/navbar.html:51
 #: task_manager/templates/statuses/statuses.html:15
-msgid "Status"
+msgid "Statuses"
 msgstr "Статусы"
 
 #: task_manager/templates/navbar.html:58
 #: task_manager/templates/tasks/tasks.html:14
-msgid "Task"
+msgid "Tasks"
 msgstr "Задачи"
 
 #: task_manager/templates/navbar.html:63
@@ -181,21 +214,10 @@ msgstr "Изменение статуса"
 msgid "Create status"
 msgstr "Создать статус"
 
+#: task_manager/templates/tasks/task_create.html:7
 #: task_manager/templates/tasks/tasks.html:15
 msgid "Create a task"
 msgstr "Создать задачу"
-
-#: task_manager/templates/tasks/tasks.html:21
-msgid "Status"
-msgstr "Статус"
-
-#: task_manager/templates/tasks/tasks.html:22
-msgid "Author"
-msgstr "Автор"
-
-#: task_manager/templates/tasks/tasks.html:23
-msgid "Executor"
-msgstr "Исполнитель"
 
 #: task_manager/templates/users/delete.html:7
 msgid "Deleting a user"
