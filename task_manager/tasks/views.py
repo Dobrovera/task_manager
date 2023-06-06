@@ -26,11 +26,13 @@ class TaskCreateView(View):
         form = TaskCreateForm(request.POST)
         if form.is_valid():
             if form['name'].value() not in Task.objects.values_list('name', flat=True).distinct():
-                form.save()
-                messages.success(request, gettext('Status created successfully'))
-                return redirect('/statuses')
+                task = form.save(commit=False)
+                task.author = request.user
+                task.save()
+                messages.success(request, gettext('Task created successfully'))
+                return redirect('/tasks')
             else:
-                text = gettext('A task status with this name already exists')
+                text = gettext('A task with this name already exists')
                 return render(request, 'tasks/task_create.html', context={'form': form, 'text': text})
         else:
             form = TaskCreateForm()
