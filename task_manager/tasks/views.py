@@ -1,11 +1,12 @@
 from django.contrib import messages
 from django.utils.translation import gettext
 from django.views.generic.list import ListView
-from .models import Task
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
+from django.contrib.auth.models import User
 from .forms import TaskCreateForm
 from .filters import TaskFilter
+from .models import Task
 
 
 class TasksListView(ListView):
@@ -68,3 +69,32 @@ class TaskUpdateView(View):
         else:
             form = TaskCreateForm()
         return render(request, 'tasks/task_update.html', context={'form': form})
+
+
+class TaskDeleteView(View):
+    def get(self, request, *args, **kwargs):
+        task = get_object_or_404(Task, id=kwargs['id'])
+        if request.user.is_authenticated:
+            if task.author_id == request.user.id:
+                task = get_object_or_404(Task, id=kwargs['id'])
+                return render(request, 'tasks/task_delete.html', context={
+                "task": task
+                })
+            else:
+                messages.error(request, gettext('Task can only be deleted by its author'))
+                return redirect('/tasks')
+        messages.error(request, gettext('You are not authorized! Please sign in.'))
+        return redirect('/login')
+
+    def post(self, request, *args, **kwargs):
+        task = get_object_or_404(Task, id=kwargs['id'])
+        if request.user.is_authenticated:
+            if task.author_id == request.user.id:
+                task.delete()
+                messages.success(request, gettext('Task deleted successfully'))
+                return redirect('/tasks')
+            else:
+                messages.error(request, gettext('Task can only be deleted by its author'))
+                return redirect('/tasks')
+        messages.error(request, gettext('Task can only be deleted by its author'))
+        return redirect('/tasks')

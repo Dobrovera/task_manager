@@ -1,0 +1,13 @@
+{% extends "navbar.html" %}
+{% load i18n %}
+{% load bootstrap4 %}
+{% block content %}
+
+<div class="col-md-8 order-md-1 container py-5">
+    <h1 class="mt-1">{% trans 'Deleting a task' %}</h1>
+        <p class="lead">{% trans 'Are you sure you want to delete' %} {{ task.name }}</p>
+    <form action="" method="post">
+        {% csrf_token %}
+        <button class="btn btn-danger" type="submit">{% trans 'Yes, delete' %}</button>
+    </form>
+{% endblock %}
