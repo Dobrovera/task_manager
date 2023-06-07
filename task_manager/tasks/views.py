@@ -1,7 +1,6 @@
 from django.contrib import messages
 from django.utils.translation import gettext
 from django.views.generic.list import ListView
-
 from .models import Task
 from django.shortcuts import render, redirect
 from django.views import View
@@ -15,7 +14,8 @@ class TasksListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['filter'] = TaskFilter(self.request.GET, queryset=self.get_queryset())
+        user_id = self.request.user.id
+        context['filter'] = TaskFilter(user_id, self.request.GET, queryset=self.get_queryset())
         return context
 
 
