@@ -1,47 +1,56 @@
 {% extends 'navbar.html' %}
+{% load bootstrap4 %}
 {% load i18n %}
 {% block content %}
 
-<body class="bg-light">
-  <div class="container wrapper flex-grow-1">
-    {% if messages %}
-    {% for message in messages %}
-    <div class="alert {{ message.tags }} alert-dismissible" role="alert">
-      {{message}}
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">x</div>
-    {% endfor %}
-    {% endif %}
-      <h1 class="my-4">{% trans 'Tasks' %}</h1>
-    <a href="{% url 'create_task' %}">{% trans 'Create a task' %}</a>
+    <div class="container wrapper flex-grow-1">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+                    {{message}}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">x</button>
+                </div>
+            {% endfor %}
+        {% endif %}
+        <h1 class="my-4">{% trans 'Tasks' %}</h1>
+        <a href="{% url 'create_task' %}">{% trans 'Create a task' %}</a>
+        <div class="card mb-3">
+            <div class="card-body bg-light">
+                <form class="form-inline" method="get">
+                    {{ filter.form }}
+                    <button class="btn btn-primary" type="submit">{% trans 'Show' %}</button>
+                </form>
+            </div>
+        </div>
         <table class="table table-striped">
-          <thead class="thead-dark">
+            <thead class="thead-dark">
             <tr>
-              <th scope="col">id</th>
-              <th scope="col">{% trans 'Name' %}</th>
-              <th scope="col">{% trans 'Status' %}</th>
-              <th scope="col">{% trans 'Author' %}</th>
-              <th scope="col">{% trans 'Executor' %}</th>
-              <th scope="col">{% trans 'Date of creation' %}</th>
-              <th scope="col"> </th>
+                <th scope="col">id</th>
+                <th scope="col">{% trans 'Name' %}</th>
+                <th scope="col">{% trans 'Status' %}</th>
+                <th scope="col">{% trans 'Author' %}</th>
+                <th scope="col">{% trans 'Executor' %}</th>
+                <th scope="col">{% trans 'Date of creation' %}</th>
+                <th scope="col"> </th>
             </tr>
-          </thead>
-          <tbody>
-          {% for task in tasks %}
-            <tr>
-              <th scope="row">{{ task.id }}</th>
-              <td>{{ task.name }}</td>
-              <td>{{ task.status }} {{ user.last_name }}</td>
-              <td>{{ task.author }}</td>
-              <td>{{ task.executor }}</td>
-              <td>{{ task.created_at }}</td>
-              <td>
-                <a href="{% url 'update' id=task.id %}">{% trans 'Update' %}</a>
-                    <br>
-                <a href="{% url 'delete' id=task.id %}">{% trans 'Delete' %}</a>
-              </td>
-            </tr>
-          {% endfor %}
-          </tbody>
+            </thead>
+            <tbody>
+            {% for task in filter.qs %}
+                <tr>
+                    <th scope="row">{{ task.id }}</th>
+                    <td>{{ task.name }}</td>
+                    <td>{{ task.status }}</td>
+                    <td>{{ task.author.first_name }} {{ task.author.last_name }}</td>
+                    <td>{{ task.executor.first_name }} {{ task.executor.last_name }}</td>
+                    <td>{{ task.created_at }}</td>
+                    <td>
+                        <a href="{% url 'update' id=task.id %}">{% trans 'Update' %}</a>
+                        <br>
+                        <a href="{% url 'delete' id=task.id %}">{% trans 'Delete' %}</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
         </table>
-</body>
+    </div>
 {% endblock %}
