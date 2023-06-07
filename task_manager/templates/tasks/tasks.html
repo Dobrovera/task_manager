@@ -16,8 +16,8 @@
         <a href="{% url 'create_task' %}">{% trans 'Create a task' %}</a>
         <div class="card mb-3">
             <div class="card-body bg-light">
-                <form class="form-inline" method="get">
-                    {{ filter.form }}
+                <form class="form-inline center" method="get">
+                    {% bootstrap_form filter.form %}
                     <button class="btn btn-primary" type="submit">{% trans 'Show' %}</button>
                 </form>
             </div>
