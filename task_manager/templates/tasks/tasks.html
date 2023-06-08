@@ -44,7 +44,7 @@
                     <td>{{ task.executor.first_name }} {{ task.executor.last_name }}</td>
                     <td>{{ task.created_at }}</td>
                     <td>
-                        <a href="{% url 'update' id=task.id %}">{% trans 'Update' %}</a>
+                        <a href="{% url 'update_task' id=task.id %}">{% trans 'Update' %}</a>
                         <br>
                         <a href="{% url 'delete_task' id=task.id %}">{% trans 'Delete' %}</a>
                     </td>

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-07 21:55+0300\n"
+"POT-Creation-Date: 2023-06-08 18:24+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,7 +32,7 @@ msgstr "Имя"
 #: task_manager/labels/views.py:57 task_manager/labels/views.py:82
 #: task_manager/statuses/views.py:18 task_manager/statuses/views.py:28
 #: task_manager/statuses/views.py:54 task_manager/statuses/views.py:75
-#: task_manager/tasks/views.py:86
+#: task_manager/tasks/views.py:59 task_manager/tasks/views.py:87
 msgid "You are not authorized! Please sign in."
 msgstr "Вы не авторизованы! Пожалуйста, выполните вход. "
 
@@ -76,8 +76,7 @@ msgstr "Метка"
 msgid "Only self tasks"
 msgstr "Только свои задачи"
 
-#: task_manager/tasks/forms.py:10 task_manager/tasks/views.py:42
-#: task_manager/tasks/views.py:67
+#: task_manager/tasks/forms.py:11 task_manager/tasks/views.py:42
 msgid "A task with this name already exists"
 msgstr "Задача с таким именем уже существует"
 
@@ -111,16 +110,16 @@ msgstr "Дата создания"
 msgid "Task created successfully"
 msgstr "Задача успешно создана"
 
-#: task_manager/tasks/views.py:64
-msgid "Task updated successfully"
+#: task_manager/tasks/views.py:69
+msgid "Task successfully updated"
 msgstr "Задача успешно изменена"
 
-#: task_manager/tasks/views.py:84 task_manager/tasks/views.py:97
-#: task_manager/tasks/views.py:99
+#: task_manager/tasks/views.py:85 task_manager/tasks/views.py:98
+#: task_manager/tasks/views.py:100
 msgid "Task can only be deleted by its author"
 msgstr "Задачу может удалить только ее автор"
 
-#: task_manager/tasks/views.py:94
+#: task_manager/tasks/views.py:95
 msgid "Task deleted successfully"
 msgstr "Задача успешно удалена"
 
@@ -281,19 +280,19 @@ msgstr "Подтверждение пароля"
 msgid "Enter the same password as before, for verification."
 msgstr "Введите тот же пароль, что и раньше, для проверки."
 
-#: task_manager/users/views.py:35
+#: task_manager/users/views.py:26
 msgid "You are logged out"
 msgstr "Вы разлогинены"
 
-#: task_manager/users/views.py:49
+#: task_manager/users/views.py:40
 msgid "User successfully registered"
 msgstr "Пользователь успешно зарегистрирован"
 
-#: task_manager/users/views.py:68
+#: task_manager/users/views.py:59
 msgid "You are logged in"
 msgstr "Вы залогинены"
 
-#: task_manager/users/views.py:70
+#: task_manager/users/views.py:61
 msgid ""
 "Please enter the correct username and password. Both fields can be case "
 "sensitive."
@@ -301,16 +300,19 @@ msgstr ""
 "Пожалуйста, введите правильные имя пользователя и пароль. Оба поля могут "
 "быть чувствительны к регистру."
 
-#: task_manager/users/views.py:81 task_manager/users/views.py:87
-#: task_manager/users/views.py:100 task_manager/users/views.py:103
-#: task_manager/users/views.py:113 task_manager/users/views.py:119
+#: task_manager/users/views.py:72 task_manager/users/views.py:78
+#: task_manager/users/views.py:91 task_manager/users/views.py:94
+#: task_manager/users/views.py:104 task_manager/users/views.py:110
 msgid "You do not have rights to change another user."
 msgstr "У вас нет прав для изменения другого пользователя."
 
-#: task_manager/users/views.py:97
+#: task_manager/users/views.py:88
 msgid "User deleted successfully"
 msgstr "Пользователь успешно удален"
 
-#: task_manager/users/views.py:127
+#: task_manager/users/views.py:118
 msgid "User successfully updated"
 msgstr "Пользователь успешно изменен"
+
+#~ msgid "Task updated successfully"
+#~ msgstr "Задача успешно изменена"

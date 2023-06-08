@@ -4,7 +4,7 @@ from django.views.generic.list import ListView
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from django.contrib.auth.models import User
-from .forms import TaskCreateForm
+from .forms import *
 from .filters import TaskFilter
 from .models import Task
 
@@ -43,32 +43,33 @@ class TaskCreateView(View):
                 return render(request, 'tasks/task_create.html', context={'form': form, 'text': text})
         else:
             form = TaskCreateForm()
-        return render(request, 'tasks/task_create.html', context={'form': form})
+            return render(request, 'tasks/task_create.html', context={'form': form})
 
 
 class TaskUpdateView(View):
 
     def get(self, request, *args, **kwargs):
-        form = TaskCreateForm()
-        return render(request, 'tasks/task_update.html', context={
-            "form": form
-        })
+        task = get_object_or_404(Task, id=kwargs['id'])
+        if request.user.is_authenticated:
+            form = TaskUpdateForm(task.id, {"name": task.name, "description": task.description,
+                                            "status": task.status, "executor": task.executor,
+                                            "labels": task.labels})
+            return render(request, 'tasks/task_update.html', context={"form": form})
+        else:
+            messages.error(request, gettext('You are not authorized! Please sign in.'))
+            return redirect('/login')
+
 
     def post(self, request, *args, **kwargs):
-        form = TaskCreateForm(request.POST)
-        if form.is_valid():
-            if form['name'].value() not in Task.objects.values_list('name', flat=True).distinct():
-                task = form.save(commit=False)
-                task.author = request.user
-                task.save()
-                messages.success(request, gettext('Task updated successfully'))
+        task = get_object_or_404(Task, id=kwargs['id'])
+        if request.user.is_authenticated:
+            form = TaskUpdateForm(task.id, request.POST)
+            if form.is_valid():
+                form.save()
+                messages.success(request, gettext('Task successfully updated'))
                 return redirect('/tasks')
             else:
-                text = gettext('A task with this name already exists')
-                return render(request, 'tasks/task_update.html', context={'form': form, 'text': text})
-        else:
-            form = TaskCreateForm()
-        return render(request, 'tasks/task_update.html', context={'form': form})
+                return render(request, 'tasks/task_update.html', context={"form": form})
 
 
 class TaskDeleteView(View):
