@@ -38,7 +38,8 @@
             {% for task in filter.qs %}
                 <tr>
                     <th scope="row">{{ task.id }}</th>
-                    <td>{{ task.name }}</td>
+                    <td>
+                        <a href="{% url 'task_card' id=task.id %}">{{ task.name }}</td>
                     <td>{{ task.status }}</td>
                     <td>{{ task.author.first_name }} {{ task.author.last_name }}</td>
                     <td>{{ task.executor.first_name }} {{ task.executor.last_name }}</td>

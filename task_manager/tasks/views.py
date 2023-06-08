@@ -13,6 +13,12 @@ class TasksListView(ListView):
     model = Task
     template_name = 'tasks/tasks.html'
 
+    def get(self, request, *args, **kwargs):
+        if not self.request.user.is_authenticated:
+            messages.error(self.request, gettext('You are not authorized! Please sign in.'))
+            return redirect('/login')
+        return super().get(request, *args, **kwargs)
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         user_id = self.request.user.id
@@ -23,10 +29,13 @@ class TasksListView(ListView):
 class TaskCreateView(View):
 
     def get(self, request, *args, **kwargs):
-        form = TaskCreateForm()
-        return render(request, 'tasks/task_create.html', context={
-            "form": form
-        })
+        if request.user.is_authenticated:
+            form = TaskCreateForm()
+            return render(request, 'tasks/task_create.html', context={
+                "form": form
+            })
+        messages.error(self.request, gettext('You are not authorized! Please sign in.'))
+        return redirect('/login')
 
     def post(self, request, *args, **kwargs):
         form = TaskCreateForm(request.POST)
@@ -99,3 +108,15 @@ class TaskDeleteView(View):
                 return redirect('/tasks')
         messages.error(request, gettext('Task can only be deleted by its author'))
         return redirect('/tasks')
+
+
+class TaskCardView(View):
+
+    def get(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            task = get_object_or_404(Task, id=kwargs['id'])
+            labels = task.labels.all()
+            return render(request, 'tasks/task_card.html', context={
+                "task": task,
+                "labels": labels,
+            })
