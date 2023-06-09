@@ -31,7 +31,8 @@ class CreateStatus(View):
     def post(self, request, *args, **kwargs):
         form = StatusesForm(request.POST)
         if form.is_valid():
-            if form['status_name'].value() not in Status.objects.values_list('status_name', flat=True).distinct():
+            if True:
+            # if form['status_name'].value() not in Status.objects.values_list('status_name', flat=True).distinct():
                 form.save()
                 messages.success(request, gettext('Status created successfully'))
                 return redirect('/statuses')
@@ -39,7 +40,8 @@ class CreateStatus(View):
                 text = gettext('A task status with this name already exists')
                 return render(request, 'statuses/statuses_create.html', context={'form': form, 'text': text})
         else:
-            form = StatusesForm()
+            pass
+            # form = StatusesForm()
         return render(request, 'statuses/statuses_create.html', context={'form': form})
 
 

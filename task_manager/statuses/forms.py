@@ -1,29 +1,10 @@
 from django import forms
 from django.contrib.auth.forms import UserChangeForm
-from django.core import validators
-from django.core.exceptions import ValidationError
-
 from .models import Status
 from django.utils.translation import gettext
 
 
-def validate_already_exist(value):
-    if value in Status.objects.all().values_list('status_name', flat=True):
-        raise ValidationError(
-            gettext("A task status with this name already exists"),
-            params={"value": value},
-        )
-
-
 class StatusesForm(forms.ModelForm):
-
-    status_name = forms.CharField(
-        label=gettext("status_name"),
-        strip=False,
-        widget=forms.TextInput(),
-        help_text='',
-        validators=[validate_already_exist]
-    )
 
     class Meta:
         model = Status
@@ -45,7 +26,6 @@ class UpdateStatusForm(UserChangeForm):
         strip=False,
         widget=forms.TextInput(),
         help_text='',
-        validators=[validate_already_exist]
     )
 
     def save(self, commit=True):

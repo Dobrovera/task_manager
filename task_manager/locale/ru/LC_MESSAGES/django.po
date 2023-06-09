@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-08 18:24+0300\n"
+"POT-Creation-Date: 2023-06-09 00:13+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,8 +31,9 @@ msgstr "Имя"
 #: task_manager/labels/views.py:19 task_manager/labels/views.py:29
 #: task_manager/labels/views.py:57 task_manager/labels/views.py:82
 #: task_manager/statuses/views.py:18 task_manager/statuses/views.py:28
-#: task_manager/statuses/views.py:54 task_manager/statuses/views.py:75
-#: task_manager/tasks/views.py:59 task_manager/tasks/views.py:87
+#: task_manager/statuses/views.py:56 task_manager/statuses/views.py:77
+#: task_manager/tasks/views.py:18 task_manager/tasks/views.py:37
+#: task_manager/tasks/views.py:68 task_manager/tasks/views.py:96
 msgid "You are not authorized! Please sign in."
 msgstr "Вы не авторизованы! Пожалуйста, выполните вход. "
 
@@ -48,23 +49,27 @@ msgstr "Метка успешно изменена"
 msgid "Label deleted successfully"
 msgstr "Метка успешно удалена"
 
-#: task_manager/statuses/forms.py:13 task_manager/statuses/views.py:39
-msgid "A task status with this name already exists"
-msgstr "Статус задачи с таким именем уже существует"
-
-#: task_manager/statuses/forms.py:21 task_manager/statuses/forms.py:44
+#: task_manager/statuses/forms.py:45
 msgid "status_name"
 msgstr "Имя"
 
-#: task_manager/statuses/views.py:36
+#: task_manager/statuses/models.py:6
+msgid "%(model_name)s with this name already exists."
+msgstr "%(model_name)s с таким именем уже существует."
+
+#: task_manager/statuses/views.py:37
 msgid "Status created successfully"
 msgstr "Статус успешно создан"
 
-#: task_manager/statuses/views.py:60
+#: task_manager/statuses/views.py:40
+msgid "A task status with this name already exists"
+msgstr "Статус задачи с таким именем уже существует"
+
+#: task_manager/statuses/views.py:62
 msgid "Status deleted successfully"
 msgstr "Статус успешно удален"
 
-#: task_manager/statuses/views.py:84
+#: task_manager/statuses/views.py:86
 msgid "Status updated successfully"
 msgstr "Статус успешно изменен"
 
@@ -76,19 +81,25 @@ msgstr "Метка"
 msgid "Only self tasks"
 msgstr "Только свои задачи"
 
-#: task_manager/tasks/forms.py:11 task_manager/tasks/views.py:42
+#: task_manager/tasks/forms.py:11 task_manager/tasks/views.py:51
 msgid "A task with this name already exists"
 msgstr "Задача с таким именем уже существует"
 
-#: task_manager/tasks/models.py:10 task_manager/templates/tasks/tasks.html:31
+#: task_manager/tasks/models.py:10
+#: task_manager/templates/tasks/task_card.html:17
+#: task_manager/templates/tasks/tasks.html:31
 msgid "Author"
 msgstr "Автор"
 
-#: task_manager/tasks/models.py:11 task_manager/templates/tasks/tasks.html:30
+#: task_manager/tasks/models.py:11
+#: task_manager/templates/tasks/task_card.html:25
+#: task_manager/templates/tasks/tasks.html:30
 msgid "Status"
 msgstr "Статус"
 
-#: task_manager/tasks/models.py:13 task_manager/templates/tasks/tasks.html:32
+#: task_manager/tasks/models.py:13
+#: task_manager/templates/tasks/task_card.html:21
+#: task_manager/templates/tasks/tasks.html:32
 msgid "Executor"
 msgstr "Исполнитель"
 
@@ -106,20 +117,20 @@ msgstr "Имя"
 msgid "created_at"
 msgstr "Дата создания"
 
-#: task_manager/tasks/views.py:39
+#: task_manager/tasks/views.py:48
 msgid "Task created successfully"
 msgstr "Задача успешно создана"
 
-#: task_manager/tasks/views.py:69
+#: task_manager/tasks/views.py:78
 msgid "Task successfully updated"
 msgstr "Задача успешно изменена"
 
-#: task_manager/tasks/views.py:85 task_manager/tasks/views.py:98
-#: task_manager/tasks/views.py:100
+#: task_manager/tasks/views.py:94 task_manager/tasks/views.py:107
+#: task_manager/tasks/views.py:109
 msgid "Task can only be deleted by its author"
 msgstr "Задачу может удалить только ее автор"
 
-#: task_manager/tasks/views.py:95
+#: task_manager/tasks/views.py:104
 msgid "Task deleted successfully"
 msgstr "Задача успешно удалена"
 
@@ -160,8 +171,9 @@ msgstr "Изменение метки"
 #: task_manager/templates/labels/labels.html:33
 #: task_manager/templates/statuses/status_update.html:12
 #: task_manager/templates/statuses/statuses.html:33
+#: task_manager/templates/tasks/task_card.html:42
 #: task_manager/templates/tasks/task_update.html:17
-#: task_manager/templates/tasks/tasks.html:47
+#: task_manager/templates/tasks/tasks.html:48
 #: task_manager/templates/users/update.html:17
 #: task_manager/templates/users/users.html:33
 msgid "Update"
@@ -169,11 +181,13 @@ msgstr "Изменить"
 
 #: task_manager/templates/labels/labels.html:15
 #: task_manager/templates/navbar.html:55
+#: task_manager/templates/tasks/task_card.html:33
 msgid "Labels"
 msgstr "Метки"
 
 #: task_manager/templates/labels/labels.html:22
 #: task_manager/templates/statuses/statuses.html:22
+#: task_manager/templates/tasks/task_card.html:29
 #: task_manager/templates/tasks/tasks.html:33
 #: task_manager/templates/users/users.html:21
 msgid "Date of creation"
@@ -181,7 +195,8 @@ msgstr "Дата создания"
 
 #: task_manager/templates/labels/labels.html:35
 #: task_manager/templates/statuses/statuses.html:35
-#: task_manager/templates/tasks/tasks.html:49
+#: task_manager/templates/tasks/task_card.html:44
+#: task_manager/templates/tasks/tasks.html:50
 #: task_manager/templates/users/users.html:35
 msgid "Delete"
 msgstr "Удалить"
@@ -234,6 +249,10 @@ msgstr "Изменение статуса"
 #: task_manager/templates/statuses/statuses_create.html:7
 msgid "Create status"
 msgstr "Создать статус"
+
+#: task_manager/templates/tasks/task_card.html:7
+msgid "Task view"
+msgstr ""
 
 #: task_manager/templates/tasks/task_create.html:7
 #: task_manager/templates/tasks/tasks.html:16

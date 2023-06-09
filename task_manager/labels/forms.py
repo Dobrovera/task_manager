@@ -1,36 +1,16 @@
 from django import forms
 from django.contrib.auth.forms import UserChangeForm
-from django.core.exceptions import ValidationError
 from django.utils.translation import gettext
-
 from .models import Label
 
 
-def validate_already_exist(value):
-    if value in Label.objects.all().values_list('label_name', flat=True):
-        raise ValidationError(
-            gettext("A label with this name already exists"),
-            params={"value": value},
-        )
-
-
 class LabelsForm(forms.ModelForm):
-
-
-    label_name = forms.CharField(
-        label=gettext("label_name"),
-        strip=False,
-        widget=forms.TextInput(),
-        help_text='',
-        validators=[validate_already_exist]
-    )
 
     class Meta:
         model = Label
         fields = (
             'label_name',
         )
-
 
 
 class UpdateLabelForm(UserChangeForm):
@@ -45,7 +25,6 @@ class UpdateLabelForm(UserChangeForm):
         strip=False,
         widget=forms.TextInput(),
         help_text='',
-        validators=[validate_already_exist]
     )
 
     def save(self, commit=True):

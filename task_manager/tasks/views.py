@@ -51,7 +51,6 @@ class TaskCreateView(View):
                 text = gettext('A task with this name already exists')
                 return render(request, 'tasks/task_create.html', context={'form': form, 'text': text})
         else:
-            form = TaskCreateForm()
             return render(request, 'tasks/task_create.html', context={'form': form})
 
 

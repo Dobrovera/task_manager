@@ -40,7 +40,7 @@ class LabelCreateView(View):
             else:
                 return render(request, 'labels/label_create.html', context={'form': form})
         else:
-            form = LabelsForm()
+            pass
         return render(request, 'labels/label_create.html', context={'form': form})
 
 
