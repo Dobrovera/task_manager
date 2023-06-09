@@ -52,7 +52,7 @@ class StatusDeleteView(View):
         status = get_object_or_404(Status, id=kwargs['id'])
         if status.id not in Task.objects.values_list('status_id', flat=True):
             status.delete()
-            messages.success(request, gettext('Status updated successfully'))
+            messages.success(request, gettext('Status deleted successfully'))
             return redirect('/statuses')
         else:
             messages.error(request, gettext("Can't delete status because it's in use"))

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-09 21:22+0300\n"
+"POT-Creation-Date: 2023-06-09 21:58+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -80,13 +80,17 @@ msgstr "Статус"
 msgid "Status created successfully"
 msgstr "Статус успешно создан"
 
-#: task_manager/statuses/views.py:55 task_manager/statuses/views.py:81
-msgid "Status updated successfully"
-msgstr "Статус успешно изменен"
+#: task_manager/statuses/views.py:55
+msgid "Status deleted successfully"
+msgstr "Статус успешно удален"
 
 #: task_manager/statuses/views.py:58
 msgid "Can't delete status because it's in use"
 msgstr "Невозможно удалить статус, потому что он используется"
+
+#: task_manager/statuses/views.py:81
+msgid "Status updated successfully"
+msgstr "Статус успешно изменен"
 
 #: task_manager/tasks/filters.py:16
 msgid "Only self tasks"
@@ -251,7 +255,7 @@ msgstr "Создать статус"
 
 #: task_manager/templates/tasks/task_card.html:7
 msgid "Task view"
-msgstr ""
+msgstr "Просмотр задачи"
 
 #: task_manager/templates/tasks/task_create.html:7
 #: task_manager/templates/tasks/tasks.html:16
@@ -298,19 +302,19 @@ msgstr "Подтверждение пароля"
 msgid "Enter the same password as before, for verification."
 msgstr "Введите тот же пароль, что и раньше, для проверки."
 
-#: task_manager/users/views.py:26
+#: task_manager/users/views.py:25
 msgid "You are logged out"
 msgstr "Вы разлогинены"
 
-#: task_manager/users/views.py:40
+#: task_manager/users/views.py:38
 msgid "User successfully registered"
 msgstr "Пользователь успешно зарегистрирован"
 
-#: task_manager/users/views.py:59
+#: task_manager/users/views.py:57
 msgid "You are logged in"
 msgstr "Вы залогинены"
 
-#: task_manager/users/views.py:61
+#: task_manager/users/views.py:59
 msgid ""
 "Please enter the correct username and password. Both fields can be case "
 "sensitive."
@@ -318,17 +322,17 @@ msgstr ""
 "Пожалуйста, введите правильные имя пользователя и пароль. Оба поля могут "
 "быть чувствительны к регистру."
 
-#: task_manager/users/views.py:72 task_manager/users/views.py:78
-#: task_manager/users/views.py:91 task_manager/users/views.py:94
-#: task_manager/users/views.py:104 task_manager/users/views.py:110
+#: task_manager/users/views.py:70 task_manager/users/views.py:76
+#: task_manager/users/views.py:89 task_manager/users/views.py:92
+#: task_manager/users/views.py:102 task_manager/users/views.py:108
 msgid "You do not have rights to change another user."
 msgstr "У вас нет прав для изменения другого пользователя."
 
-#: task_manager/users/views.py:88
+#: task_manager/users/views.py:86
 msgid "User deleted successfully"
 msgstr "Пользователь успешно удален"
 
-#: task_manager/users/views.py:118
+#: task_manager/users/views.py:116
 msgid "User successfully updated"
 msgstr "Пользователь успешно изменен"
 
@@ -337,9 +341,6 @@ msgstr "Пользователь успешно изменен"
 
 #~ msgid "A task status with this name already exists"
 #~ msgstr "Статус задачи с таким именем уже существует"
-
-#~ msgid "Status deleted successfully"
-#~ msgstr "Статус успешно удален"
 
 #~ msgid "Task updated successfully"
 #~ msgstr "Задача успешно изменена"
