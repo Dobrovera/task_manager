@@ -12,18 +12,26 @@ To work with the system, registration and authentication are required:
 
 ![PLOT](images/Reg_form.png)
 
+---
+
 You can view the list of registered users
 
 ![PLOT](images/Users.png)
+
+---
 
 Authenticated users can view and create and delete **statuses** and **labels**
 
 ![PLOT](images/Statuses.png)
 ![PLOT](images/Labels.png)
 
+---
+
 You can also create, edit and delete **tasks**
 
 ![PLOT](images/Tasks.png)
+
+---
 
 Detailed information on the task can be viewed on the task card
 
@@ -41,6 +49,7 @@ Detailed information on the task can be viewed on the task card
 
 ### To run locally
 <hr>
+
 At first, clone the repository:
 
 ```
@@ -48,6 +57,7 @@ git clone https://github.com/Dobrovera/python-project-52
 ```
 
 Next, create .env file in the root folder. You need to write some variables in it:
+
 ```
 DATABASE_URL={provider}://{user}:{password}@{host}:{port}/{db}
 SECRET_KEY={your secret key}
@@ -55,6 +65,7 @@ LANGUAGE=en-us # By default the app will use ru-ru locale
 ```
 
 And runserver:
+
 ```
 python3 manage.py runserver
 ```
