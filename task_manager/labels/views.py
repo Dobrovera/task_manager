@@ -2,10 +2,9 @@ from django.contrib import messages
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils.translation import gettext
 from django.views import View
+from task_manager.tasks.models import Task
 from .models import Label
 from .forms import LabelsForm, UpdateLabelForm
-from django.contrib.auth.models import User
-from django.contrib.auth import authenticate
 
 
 class LabelsListView(View):
@@ -29,7 +28,6 @@ class LabelCreateView(View):
         messages.error(request, gettext('You are not authorized! Please sign in.'))
         return redirect('/login')
 
-
     def post(self, request, *args, **kwargs):
         form = LabelsForm(request.POST)
         if form.is_valid():
@@ -44,7 +42,7 @@ class LabelCreateView(View):
         return render(request, 'labels/label_create.html', context={'form': form})
 
 
-class UpdateLabelView(View):
+class LabelUpdateView(View):
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
             label = get_object_or_404(Label, id=kwargs['id'])
@@ -72,7 +70,7 @@ class UpdateLabelView(View):
             })
 
 
-class DeleteLabelView(View):
+class LabelDeleteView(View):
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
             label = get_object_or_404(Label, id=kwargs['id'])
@@ -84,6 +82,10 @@ class DeleteLabelView(View):
 
     def post(self, request, *args, **kwargs):
         label = get_object_or_404(Label, id=kwargs['id'])
-        label.delete()
-        messages.success(request, gettext('Label deleted successfully'))
-        return redirect('/labels')
+        if label.id not in Task.objects.values_list('labels', flat=True):
+            label.delete()
+            messages.success(request, gettext('Label deleted successfully'))
+            return redirect('/labels')
+        else:
+            messages.error(request, gettext("Can't delete label because it's in use"))
+            return redirect('/labels')

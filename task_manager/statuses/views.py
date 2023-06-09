@@ -1,13 +1,13 @@
 from django.contrib import messages
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
-from .models import Status
-from task_manager.views import index
-from .forms import StatusesForm, UpdateStatusForm
 from django.utils.translation import gettext
+from task_manager.tasks.models import Task
+from .models import Status
+from .forms import StatusesForm, UpdateStatusForm
 
 
-class StatusesList(View):
+class StatusesListView(View):
 
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
@@ -19,7 +19,7 @@ class StatusesList(View):
         return redirect('/login')
 
 
-class CreateStatus(View):
+class StatusCreateView(View):
 
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
@@ -31,21 +31,13 @@ class CreateStatus(View):
     def post(self, request, *args, **kwargs):
         form = StatusesForm(request.POST)
         if form.is_valid():
-            if True:
-            # if form['status_name'].value() not in Status.objects.values_list('status_name', flat=True).distinct():
-                form.save()
-                messages.success(request, gettext('Status created successfully'))
-                return redirect('/statuses')
-            else:
-                text = gettext('A task status with this name already exists')
-                return render(request, 'statuses/statuses_create.html', context={'form': form, 'text': text})
-        else:
-            pass
-            # form = StatusesForm()
+            form.save()
+            messages.success(request, gettext('Status created successfully'))
+            return redirect('/statuses')
         return render(request, 'statuses/statuses_create.html', context={'form': form})
 
 
-class DeleteStatus(View):
+class StatusDeleteView(View):
 
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
@@ -58,12 +50,16 @@ class DeleteStatus(View):
 
     def post(self, request, *args, **kwargs):
         status = get_object_or_404(Status, id=kwargs['id'])
-        status.delete()
-        messages.success(request, gettext('Status deleted successfully'))
-        return redirect('/statuses')
+        if status.id not in Task.objects.values_list('status_id', flat=True):
+            status.delete()
+            messages.success(request, gettext('Status updated successfully'))
+            return redirect('/statuses')
+        else:
+            messages.error(request, gettext("Can't delete status because it's in use"))
+            return redirect('/statuses')
 
 
-class UpdateStatus(View):
+class StatusUpdateView(View):
 
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
@@ -80,11 +76,10 @@ class UpdateStatus(View):
     def post(self, request, *args, **kwargs):
         status = get_object_or_404(Status, id=kwargs['id'])
         form = UpdateStatusForm(status.id, request.POST)
-        if request.POST['status_name'] not in Status.objects.all().values_list('status_name', flat=True):
-            if form.is_valid():
-                form.save()
-                messages.success(request, gettext('Status updated successfully'))
-                return redirect('/statuses')
+        if form.is_valid():
+            form.save()
+            messages.success(request, gettext('Status updated successfully'))
+            return redirect('/statuses')
         else:
             return render(request, 'statuses/status_update.html', context={
                 "form": form,

@@ -16,7 +16,7 @@ class TaskFilter(django_filters.FilterSet):
         label=gettext('Only self tasks'),
         widget=forms.CheckboxInput,
         method='get_own_tasks',
-        field_name='only_self_tasks'
+        field_name='only_self_tasks',
     )
 
     def __init__(self, user_id, *args, **kwargs):

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-09 00:13+0300\n"
+"POT-Creation-Date: 2023-06-09 21:22+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,62 +20,73 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: task_manager/labels/forms.py:12
-msgid "A label with this name already exists"
-msgstr "Метка с таким именем уже существует"
-
-#: task_manager/labels/forms.py:21 task_manager/labels/forms.py:44
+#: task_manager/labels/forms.py:24
 msgid "label_name"
 msgstr "Имя"
 
-#: task_manager/labels/views.py:19 task_manager/labels/views.py:29
-#: task_manager/labels/views.py:57 task_manager/labels/views.py:82
-#: task_manager/statuses/views.py:18 task_manager/statuses/views.py:28
-#: task_manager/statuses/views.py:56 task_manager/statuses/views.py:77
-#: task_manager/tasks/views.py:18 task_manager/tasks/views.py:37
-#: task_manager/tasks/views.py:68 task_manager/tasks/views.py:96
-msgid "You are not authorized! Please sign in."
-msgstr "Вы не авторизованы! Пожалуйста, выполните вход. "
-
-#: task_manager/labels/views.py:38
-msgid "Label created successfully"
-msgstr "Метка успешно создана"
-
-#: task_manager/labels/views.py:66
-msgid "Label updated successfully"
-msgstr "Метка успешно изменена"
-
-#: task_manager/labels/views.py:88
-msgid "Label deleted successfully"
-msgstr "Метка успешно удалена"
-
-#: task_manager/statuses/forms.py:45
-msgid "status_name"
+#: task_manager/labels/models.py:6 task_manager/statuses/models.py:6
+#: task_manager/tasks/models.py:16 task_manager/templates/labels/labels.html:21
+#: task_manager/templates/statuses/statuses.html:21
+#: task_manager/templates/tasks/tasks.html:29
+msgid "Name"
 msgstr "Имя"
 
-#: task_manager/statuses/models.py:6
+#: task_manager/labels/models.py:7 task_manager/statuses/models.py:7
+#, python-format
 msgid "%(model_name)s with this name already exists."
 msgstr "%(model_name)s с таким именем уже существует."
 
-#: task_manager/statuses/views.py:37
+#: task_manager/labels/models.py:14 task_manager/tasks/filters.py:11
+#: task_manager/tasks/models.py:14
+msgid "Label"
+msgstr "Метка"
+
+#: task_manager/labels/views.py:18 task_manager/labels/views.py:28
+#: task_manager/labels/views.py:55 task_manager/labels/views.py:80
+#: task_manager/statuses/views.py:18 task_manager/statuses/views.py:28
+#: task_manager/statuses/views.py:48 task_manager/statuses/views.py:73
+#: task_manager/tasks/views.py:18 task_manager/tasks/views.py:37
+#: task_manager/tasks/views.py:67 task_manager/tasks/views.py:95
+msgid "You are not authorized! Please sign in."
+msgstr "Вы не авторизованы! Пожалуйста, выполните вход."
+
+#: task_manager/labels/views.py:36
+msgid "Label created successfully"
+msgstr "Метка успешно создана"
+
+#: task_manager/labels/views.py:64
+msgid "Label updated successfully"
+msgstr "Метка успешно изменена"
+
+#: task_manager/labels/views.py:87
+msgid "Label deleted successfully"
+msgstr "Метка успешно удалена"
+
+#: task_manager/labels/views.py:90
+msgid "Can't delete label because it's in use"
+msgstr "Невозможно удалить метку, потому что она используется"
+
+#: task_manager/statuses/forms.py:25
+msgid "status_name"
+msgstr "Имя"
+
+#: task_manager/statuses/models.py:14 task_manager/tasks/models.py:11
+#: task_manager/templates/tasks/task_card.html:25
+#: task_manager/templates/tasks/tasks.html:30
+msgid "Status"
+msgstr "Статус"
+
+#: task_manager/statuses/views.py:35
 msgid "Status created successfully"
 msgstr "Статус успешно создан"
 
-#: task_manager/statuses/views.py:40
-msgid "A task status with this name already exists"
-msgstr "Статус задачи с таким именем уже существует"
-
-#: task_manager/statuses/views.py:62
-msgid "Status deleted successfully"
-msgstr "Статус успешно удален"
-
-#: task_manager/statuses/views.py:86
+#: task_manager/statuses/views.py:55 task_manager/statuses/views.py:81
 msgid "Status updated successfully"
 msgstr "Статус успешно изменен"
 
-#: task_manager/tasks/filters.py:11 task_manager/tasks/models.py:14
-msgid "Label"
-msgstr "Метка"
+#: task_manager/statuses/views.py:58
+msgid "Can't delete status because it's in use"
+msgstr "Невозможно удалить статус, потому что он используется"
 
 #: task_manager/tasks/filters.py:16
 msgid "Only self tasks"
@@ -91,12 +102,6 @@ msgstr "Задача с таким именем уже существует"
 msgid "Author"
 msgstr "Автор"
 
-#: task_manager/tasks/models.py:11
-#: task_manager/templates/tasks/task_card.html:25
-#: task_manager/templates/tasks/tasks.html:30
-msgid "Status"
-msgstr "Статус"
-
 #: task_manager/tasks/models.py:13
 #: task_manager/templates/tasks/task_card.html:21
 #: task_manager/templates/tasks/tasks.html:32
@@ -107,12 +112,6 @@ msgstr "Исполнитель"
 msgid "Description"
 msgstr "Описание"
 
-#: task_manager/tasks/models.py:16 task_manager/templates/labels/labels.html:21
-#: task_manager/templates/statuses/statuses.html:21
-#: task_manager/templates/tasks/tasks.html:29
-msgid "Name"
-msgstr "Имя"
-
 #: task_manager/tasks/models.py:17
 msgid "created_at"
 msgstr "Дата создания"
@@ -121,16 +120,16 @@ msgstr "Дата создания"
 msgid "Task created successfully"
 msgstr "Задача успешно создана"
 
-#: task_manager/tasks/views.py:78
+#: task_manager/tasks/views.py:77
 msgid "Task successfully updated"
 msgstr "Задача успешно изменена"
 
-#: task_manager/tasks/views.py:94 task_manager/tasks/views.py:107
-#: task_manager/tasks/views.py:109
+#: task_manager/tasks/views.py:93 task_manager/tasks/views.py:106
+#: task_manager/tasks/views.py:108
 msgid "Task can only be deleted by its author"
 msgstr "Задачу может удалить только ее автор"
 
-#: task_manager/tasks/views.py:104
+#: task_manager/tasks/views.py:103
 msgid "Task deleted successfully"
 msgstr "Задача успешно удалена"
 
@@ -332,6 +331,15 @@ msgstr "Пользователь успешно удален"
 #: task_manager/users/views.py:118
 msgid "User successfully updated"
 msgstr "Пользователь успешно изменен"
+
+#~ msgid "A label with this name already exists"
+#~ msgstr "Метка с таким именем уже существует"
+
+#~ msgid "A task status with this name already exists"
+#~ msgstr "Статус задачи с таким именем уже существует"
+
+#~ msgid "Status deleted successfully"
+#~ msgstr "Статус успешно удален"
 
 #~ msgid "Task updated successfully"
 #~ msgstr "Задача успешно изменена"
