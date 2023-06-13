@@ -1,0 +1,22 @@
+name: linter
+on: push
+env:
+  PYTHON_KEYRING_BACKEND: keyring.backends.null.Keyring
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: install dependencies
+        run: |
+          pip install poetry flake8 pytest
+          make install
+      - name: build
+        run: make build
+      - name: upgrade pip
+        run: python3 -m pip install --upgrade pip
+      - name: package-install
+        run: python3 -m pip install --force dist/*.whl
+      - name: make lint
+        run: make lint
