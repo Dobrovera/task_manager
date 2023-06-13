@@ -18,12 +18,18 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='task',
             name='author',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='task_author_user', to=settings.AUTH_USER_MODEL, verbose_name='Автор'),
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.PROTECT,
+                related_name='task_author_user',
+                to=settings.AUTH_USER_MODEL,
+                verbose_name='Автор'),
         ),
         migrations.AlterField(
             model_name='task',
             name='created_at',
-            field=models.DateTimeField(auto_now_add=True, verbose_name='Дата создания'),
+            field=models.DateTimeField(
+                auto_now_add=True,
+                verbose_name='Дата создания'),
         ),
         migrations.AlterField(
             model_name='task',
@@ -33,12 +39,18 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='task',
             name='executor',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='task_executor_user', to=settings.AUTH_USER_MODEL, verbose_name='Исполнитель'),
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.PROTECT,
+                related_name='task_executor_user',
+                to=settings.AUTH_USER_MODEL,
+                verbose_name='Исполнитель'),
         ),
         migrations.AlterField(
             model_name='task',
             name='labels',
-            field=models.ManyToManyField(to='labels.label', verbose_name='Метка'),
+            field=models.ManyToManyField(
+                to='labels.label',
+                verbose_name='Метка'),
         ),
         migrations.AlterField(
             model_name='task',
@@ -48,6 +60,9 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='task',
             name='status',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='statuses.status', verbose_name='Статус'),
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.PROTECT,
+                to='statuses.status',
+                verbose_name='Статус'),
         ),
     ]

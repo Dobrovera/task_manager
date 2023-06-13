@@ -30,8 +30,8 @@ class TaskUpdateForm(forms.ModelForm):
 
     def save(self, commit=True):
 
-    # написала кастомный save, так как стандартный save базового клаccа
-    # вместо того, чтобы изменять задачу создавал новую задачу.
+        # написала кастомный save, так как стандартный save базового клаccа
+        # вместо того, чтобы изменять задачу создавал новую задачу.
 
         task = Task.objects.get(id=self.task_id)
         task.name = self.cleaned_data.get('name')

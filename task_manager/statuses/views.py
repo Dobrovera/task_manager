@@ -15,7 +15,9 @@ class StatusesListView(View):
             return render(request, 'statuses/statuses.html', context={
                 "statuses": statuses,
             })
-        messages.error(request, gettext('You are not authorized! Please sign in.'))
+        messages.error(request, gettext(
+            'You are not authorized! Please sign in.'
+        ))
         return redirect('/login')
 
 
@@ -24,8 +26,13 @@ class StatusCreateView(View):
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
             form = StatusesForm()
-            return render(request, 'statuses/statuses_create.html', context={'form': form})
-        messages.error(request, gettext('You are not authorized! Please sign in.'))
+            return render(request, 'statuses/statuses_create.html',
+                          context={
+                              "form": form
+                          })
+        messages.error(request, gettext(
+            'You are not authorized! Please sign in.'
+        ))
         return redirect('/login')
 
     def post(self, request, *args, **kwargs):
@@ -34,7 +41,10 @@ class StatusCreateView(View):
             form.save()
             messages.success(request, gettext('Status created successfully'))
             return redirect('/statuses')
-        return render(request, 'statuses/statuses_create.html', context={'form': form})
+        return render(request, 'statuses/statuses_create.html',
+                      context={
+                          "form": form
+                      })
 
 
 class StatusDeleteView(View):
@@ -45,7 +55,9 @@ class StatusDeleteView(View):
             return render(request, 'statuses/status_delete.html', context={
                 "status": status
             })
-        messages.error(request, gettext('You are not authorized! Please sign in.'))
+        messages.error(request, gettext(
+            'You are not authorized! Please sign in.'
+        ))
         return redirect('/login')
 
     def post(self, request, *args, **kwargs):
@@ -55,7 +67,9 @@ class StatusDeleteView(View):
             messages.success(request, gettext('Status deleted successfully'))
             return redirect('/statuses')
         else:
-            messages.error(request, gettext("Can't delete status because it's in use"))
+            messages.error(request, gettext(
+                "Can't delete status because it's in use"
+            ))
             return redirect('/statuses')
 
 
@@ -70,7 +84,9 @@ class StatusUpdateView(View):
                 "status": status,
                 "form": form,
             })
-        messages.error(request, gettext('You are not authorized! Please sign in.'))
+        messages.error(request, gettext(
+            'You are not authorized! Please sign in.'
+        ))
         return redirect('/login')
 
     def post(self, request, *args, **kwargs):

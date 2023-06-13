@@ -30,8 +30,8 @@ class UpdateStatusForm(UserChangeForm):
 
     def save(self, commit=True):
 
-    # написала кастомный save, так как стандартный save базового класса
-    # вместо того, чтобы изменять юзера создавал нового юзера
+        # написала кастомный save, так как стандартный save базового класса
+        # вместо того, чтобы изменять юзера создавал нового юзера
 
         status = Status.objects.get(id=self.status_id)
         status.status_name = self.cleaned_data.get('status_name')

@@ -19,8 +19,8 @@ class Migration(migrations.Migration):
             name='label_name',
             field=models.CharField(
                 error_messages={
-                'unique': '%(model_name)s с таким именем уже существует.'
-            },
+                    "unique": '%(model_name)s с таким именем уже существует.'
+                },
                 max_length=250,
                 unique=True,
                 verbose_name='Имя'),

@@ -17,6 +17,11 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='status',
             name='status_name',
-            field=models.CharField(error_messages={'unique': '%(model_name)s с таким именем уже существует.'}, max_length=250, unique=True, verbose_name='Имя'),
+            field=models.CharField(error_messages={
+                'unique': '%(model_name)s с таким именем уже существует.'
+            },
+                max_length=250,
+                unique=True,
+                verbose_name='Имя'),
         ),
     ]

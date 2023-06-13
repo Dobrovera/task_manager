@@ -15,7 +15,9 @@ class LabelsListView(View):
             return render(request, 'labels/labels.html', context={
                 "labels": labels,
             })
-        messages.error(request, gettext('You are not authorized! Please sign in.'))
+        messages.error(request, gettext(
+            'You are not authorized! Please sign in.'
+        ))
         return redirect('/login')
 
 
@@ -24,22 +26,37 @@ class LabelCreateView(View):
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
             form = LabelsForm()
-            return render(request, 'labels/label_create.html', context={'form': form})
-        messages.error(request, gettext('You are not authorized! Please sign in.'))
+            return render(request, 'labels/label_create.html',
+                          context={
+                              "form": form
+                          })
+        messages.error(request, gettext(
+            'You are not authorized! Please sign in.'
+        ))
         return redirect('/login')
 
     def post(self, request, *args, **kwargs):
         form = LabelsForm(request.POST)
         if form.is_valid():
-            if form['label_name'].value() not in Label.objects.values_list('label_name', flat=True).distinct():
+            if form['label_name'].value() not in \
+                    Label.objects.values_list('label_name',
+                                              flat=True).distinct():
                 form.save()
-                messages.success(request, gettext('Label created successfully'))
+                messages.success(request, gettext(
+                    'Label created successfully'
+                ))
                 return redirect('/labels')
             else:
-                return render(request, 'labels/label_create.html', context={'form': form})
+                return render(request, 'labels/label_create.html',
+                              context={
+                                  "form": form
+                              })
         else:
             pass
-        return render(request, 'labels/label_create.html', context={'form': form})
+        return render(request, 'labels/label_create.html',
+                      context={
+                          "form": form
+                      })
 
 
 class LabelUpdateView(View):
@@ -52,16 +69,22 @@ class LabelUpdateView(View):
                 "label": label,
                 "form": form,
             })
-        messages.error(request, gettext('You are not authorized! Please sign in.'))
+        messages.error(request, gettext(
+            'You are not authorized! Please sign in.'
+        ))
         return redirect('/login')
 
     def post(self, request, *args, **kwargs):
         label = get_object_or_404(Label, id=kwargs['id'])
         form = UpdateLabelForm(label.id, request.POST)
-        if request.POST['label_name'] not in Label.objects.all().values_list('label_name', flat=True):
+        if request.POST['label_name'] not in \
+                Label.objects.all().values_list('label_name',
+                                                flat=True):
             if form.is_valid():
                 form.save()
-                messages.success(request, gettext('Label updated successfully'))
+                messages.success(request, gettext(
+                    'Label updated successfully'
+                ))
                 return redirect('/labels')
             return redirect('/labels')
         else:
@@ -77,7 +100,9 @@ class LabelDeleteView(View):
             return render(request, 'labels/label_delete.html', context={
                 "label": label
             })
-        messages.error(request, gettext('You are not authorized! Please sign in.'))
+        messages.error(request, gettext(
+            'You are not authorized! Please sign in.'
+        ))
         return redirect('/login')
 
     def post(self, request, *args, **kwargs):
@@ -87,5 +112,7 @@ class LabelDeleteView(View):
             messages.success(request, gettext('Label deleted successfully'))
             return redirect('/labels')
         else:
-            messages.error(request, gettext("Can't delete label because it's in use"))
+            messages.error(request, gettext(
+                "Can't delete label because it's in use"
+            ))
             return redirect('/labels')
