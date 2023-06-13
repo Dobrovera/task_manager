@@ -1,6 +1,7 @@
 from django.test import SimpleTestCase
 from django.urls import reverse, resolve
-from task_manager.users.views import *
+from task_manager.users.views import LoginView
+
 
 class TestUrls(SimpleTestCase):
 

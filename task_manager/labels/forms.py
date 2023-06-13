@@ -29,8 +29,8 @@ class UpdateLabelForm(UserChangeForm):
 
     def save(self, commit=True):
 
-    # написала кастомный save, так как стандартный save базового класса
-    # вместо того, чтобы изменять юзера создавал нового юзера.
+        # написала кастомный save, так как стандартный save базового класса
+        # вместо того, чтобы изменять юзера создавал нового юзера.
 
         label = Label.objects.get(id=self.label_id)
         label.label_name = self.cleaned_data.get('label_name')

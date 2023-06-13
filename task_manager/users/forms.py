@@ -1,4 +1,4 @@
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm, BaseUserCreationForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import User
 from django import forms
@@ -7,7 +7,8 @@ from django import forms
 class SignUpForm(UserCreationForm):
     def __init__(self, *args, **kwargs):
         super(UserCreationForm, self).__init__(*args, **kwargs)
-        self.fields['password1'].help_text = 'Ваш пароль должен содержать как минимум 3 символа.'
+        self.fields['password1'].help_text = 'Ваш пароль должен ' \
+                                             'содержать как минимум 3 символа.'
 
     class Meta:
         model = User
@@ -26,7 +27,8 @@ class UpdateUserForm(UserChangeForm):
         label=_("Username"),
         widget=forms.TextInput(),
         strip=False,
-        help_text="Obligatory field. No more than 150 characters. Letters, numbers and symbols @/./+/-/_ only."
+        help_text="Obligatory field. No more than 150 characters. "
+                  "Letters, numbers and symbols @/./+/-/_ only."
     )
     password1 = forms.CharField(
         label=_("Password"),
@@ -45,11 +47,11 @@ class UpdateUserForm(UserChangeForm):
         super(UserChangeForm, self).__init__(*args, **kwargs)
         self.user_id = user_id
 
-
     def save(self, commit=True):
 
-    # написала кастомный save, так как стандартный save базового класса UserChangeForm
-    # вместо того, чтобы изменять юзера создавал нового юзера.
+        # написала кастомный save, так как стандартный save базового класса
+        # UserChangeForm вместо того, чтобы изменять юзера
+        # создавал нового юзера
 
         user = User.objects.get(id=self.user_id)
         user.first_name = self.cleaned_data.get('first_name')

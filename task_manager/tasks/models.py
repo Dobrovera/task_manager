@@ -6,12 +6,18 @@ from django.db import models
 
 
 class Task(models.Model):
-    author = models.ForeignKey(User, on_delete=models.PROTECT, related_name='task_author_user',
+    author = models.ForeignKey(User, on_delete=models.PROTECT,
+                               related_name='task_author_user',
                                verbose_name=gettext('Author'))
-    status = models.ForeignKey(Status, on_delete=models.PROTECT, verbose_name=gettext('Status'))
-    executor = models.ForeignKey(User, on_delete=models.PROTECT, related_name='task_executor_user',
-                                 verbose_name=gettext('Executor'), null=True, blank=True)
-    labels = models.ManyToManyField(Label, verbose_name=gettext('Label'), null=True, blank=True)
+    status = models.ForeignKey(Status, on_delete=models.PROTECT,
+                               verbose_name=gettext('Status'))
+    executor = models.ForeignKey(User, on_delete=models.PROTECT,
+                                 related_name='task_executor_user',
+                                 verbose_name=gettext('Executor'),
+                                 null=True, blank=True)
+    labels = models.ManyToManyField(Label, verbose_name=gettext('Label'),
+                                    null=True, blank=True)
     description = models.TextField(verbose_name=gettext('Description'))
     name = models.CharField(max_length=250, verbose_name=gettext('Name'))
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name=gettext('created_at'))
+    created_at = models.DateTimeField(auto_now_add=True,
+                                      verbose_name=gettext('created_at'))
