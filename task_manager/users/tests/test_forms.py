@@ -1,8 +1,8 @@
-from django.test import TestCase
+from django.test import SimpleTestCase
 from task_manager.users.forms import SignUpForm
 
 
-class TestUserForms(TestCase):
+class TestUserForms(SimpleTestCase):
 
     def test_sign_up_form_valid_data(self):
 
