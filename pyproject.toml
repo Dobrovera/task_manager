@@ -17,6 +17,7 @@ python-dotenv = "^1.0.0"
 django-bootstrap4 = "^23.1"
 i18n = "^0.2"
 coverage = "^7.2.7"
+django-filter = "^23.2"
 
 [tool.poetry.dev-dependencies]
 

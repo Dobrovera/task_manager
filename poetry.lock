@@ -88,6 +88,17 @@ beautifulsoup4 = ">=4.8.0"
 Django = ">=3.2"
 
 [[package]]
+name = "django-filter"
+version = "23.2"
+description = "Django-filter is a reusable Django application for allowing users to filter querysets dynamically."
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+Django = ">=3.2"
+
+[[package]]
 name = "flake8"
 version = "6.0.0"
 description = "the modular source code checker: pep8 pyflakes and co"
@@ -209,7 +220,7 @@ python-versions = ">=2"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8.2"
-content-hash = "09279135a52fdb359d7f9bd01a2e3b87715b32f6c73fe1814fe8060ed1896618"
+content-hash = "d6c940fee39b6fc862909601ddbf921196fc11bd136a16efb3067604d3a36877"
 
 [metadata.files]
 asgiref = []
@@ -219,6 +230,7 @@ beautifulsoup4 = []
 coverage = []
 django = []
 django-bootstrap4 = []
+django-filter = []
 flake8 = []
 gunicorn = []
 i18n = []
