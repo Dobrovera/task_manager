@@ -1,5 +1,5 @@
 ### Hexlet tests and linter status:
-[![Actions Status](https://github.com/Dobrovera/python-project-52/workflows/hexlet-check/badge.svg)](https://github.com/Dobrovera/python-project-52/actions) ![linter](https://github.com/Dobrovera/python-project-52/actions/workflows/linter.yml/badge.svg)
+[![Actions Status](https://github.com/Dobrovera/python-project-52/workflows/hexlet-check/badge.svg)](https://github.com/Dobrovera/python-project-52/actions) ![linter](https://github.com/Dobrovera/python-project-52/actions/workflows/linter.yml/badge.svg) [![Test Coverage](https://api.codeclimate.com/v1/badges/3fba32cc4dba279b495b/test_coverage)](https://codeclimate.com/github/Dobrovera/python-project-52/test_coverage)
 
 #### [link](python-project-52-production-8542.up.railway.app) to the domain
 
