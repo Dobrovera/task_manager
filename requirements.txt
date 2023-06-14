@@ -1,20 +1,10 @@
-asgiref @ file:///home/vera/.cache/pypoetry/artifacts/c5/68/49/bb0fec69095b5d65b9a9869f8d33db63ae9bb3080b8beb0bfa4c655e70/asgiref-3.6.0-py3-none-any.whl#sha256=71e68008da809b957b7ee4b43dbccff33d1b23519fb8344e33f049897077afac
-Babel @ file:///home/vera/.cache/pypoetry/artifacts/4e/47/f2/e9a0ce341c2af66df426862d7729054fb92b3fcfb8a68a1ea4764516b2/Babel-2.12.1-py3-none-any.whl#sha256=b4246fb7677d3b98f501a39d43396d3cafdc8eadb045f4a31be01863f655c610
-backports.zoneinfo @ file:///home/vera/.cache/pypoetry/artifacts/aa/b4/b4/7a4329bc0b3589a13e82474586b62709ce2f876aef24a34bcc3f685bb0/backports.zoneinfo-0.2.1-cp38-cp38-manylinux1_x86_64.whl#sha256=7b0a64cda4145548fed9efc10322770f929b944ce5cee6c0dfe0c87bf4c0c8c9
-beautifulsoup4 @ file:///home/vera/.cache/pypoetry/artifacts/d2/14/b8/c58dc8a0a14b7c0716f8575bd5f0de3a3ba63ae3aa9fb0f90d42bce81b/beautifulsoup4-4.12.2-py3-none-any.whl#sha256=bd2520ca0d9d7d12694a53d44ac482d181b4ec1888909b035a3dbf40d0f57d4a
-coverage @ file:///home/vera/.cache/pypoetry/artifacts/16/ef/2d/4da698ef3554003813d953d9dc8f98062f2ac258de486c23984a3491ac/coverage-7.2.7-cp38-cp38-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl#sha256=8d13c64ee2d33eccf7437961b6ea7ad8673e2be040b4f7fd4fd4d4d28d9ccb1e
-Django @ file:///home/vera/.cache/pypoetry/artifacts/66/8c/2a/21f7024c1d7c73978d73e10f280a51175abc89cc3224454409bfce27d2/Django-4.2.1-py3-none-any.whl#sha256=066b6debb5ac335458d2a713ed995570536c8b59a580005acb0732378d5eb1ee
-django-bootstrap4 @ file:///home/vera/.cache/pypoetry/artifacts/40/23/13/819dc7892dd07dfbb51d38dfc1bae1af99c4b5bad82d1772f064d775bc/django_bootstrap4-23.1-py3-none-any.whl#sha256=e324f40e2dda69725982cf6b5ac6004f29c55ac492aabd880ed57693d3c4c93c
-django-filter @ file:///home/vera/.cache/pypoetry/artifacts/ea/11/e1/10019c2014aa735dcc8b54c76b07dfbfa111baae5d0016774735af73fe/django_filter-23.2-py3-none-any.whl#sha256=d12d8e0fc6d3eb26641e553e5d53b191eb8cec611427d4bdce0becb1f7c172b5
-flake8 @ file:///home/vera/.cache/pypoetry/artifacts/58/f9/15/4580284ad369d0ce3a6b5c43d5657a81000299a1f417a5598b2edb2a4d/flake8-6.0.0-py2.py3-none-any.whl#sha256=3833794e27ff64ea4e9cf5d410082a8b97ff1a06c16aa3d2027339cd0f1195c7
-gunicorn @ file:///home/vera/.cache/pypoetry/artifacts/eb/33/9c/43e158642e15413395d933fef80bb16fa6b50a6ed8dd157f506b6b2c03/gunicorn-20.1.0-py3-none-any.whl#sha256=9dcc4547dbb1cb284accfb15ab5667a0e5d1881cc443e0677b4882a4067a807e
-hexlet-code==0.1.0
-i18n @ file:///home/vera/.cache/pypoetry/artifacts/9f/e6/5d/172726ae7ee312807a97ffdd797856a723fc395a5695734008101619eb/i18n-0.2.tar.gz#sha256=a6206172b184887c57a5a209d8be7aa5f70d36a7a66aa7506754e9e377d2fb4c
-mccabe @ file:///home/vera/.cache/pypoetry/artifacts/bd/88/b9/8c49255cd979ee76f0ecd433d7d70cccdc90e16db9318e3db27db61cfb/mccabe-0.7.0-py2.py3-none-any.whl#sha256=6c2d30ab6be0e4a46919781807b4f0d834ebdd6c6e3dca0bda5a15f863427b6e
-py @ file:///home/vera/.cache/pypoetry/artifacts/ab/b4/c3/a3971fd0d6ab5a2e40a43ad7b809005422d7cf333f7be6ccdfe9002e1b/py-1.11.0-py2.py3-none-any.whl#sha256=607c53218732647dff4acdfcd50cb62615cedf612e72d1724fb1a0cc6405b378
-pycodestyle @ file:///home/vera/.cache/pypoetry/artifacts/7b/47/ff/62f0fb1769f5e0a9bdca17e53613b5d6bb54554208e18d6052f445418a/pycodestyle-2.10.0-py2.py3-none-any.whl#sha256=8a4eaf0d0495c7395bdab3589ac2db602797d76207242c17d470186815706610
-pyflakes @ file:///home/vera/.cache/pypoetry/artifacts/4f/17/41/5e7ff45385cda16fc5b94e5463c2cc41dcbb278dd7852be39eb6962719/pyflakes-3.0.1-py2.py3-none-any.whl#sha256=ec55bf7fe21fff7f1ad2f7da62363d749e2a470500eab1b555334b67aa1ef8cf
-python-dotenv @ file:///home/vera/.cache/pypoetry/artifacts/87/f8/2f/cb2eb4a31def1ef5cad6e0c881308476339745b4a96bd3acab17ab7abd/python_dotenv-1.0.0-py3-none-any.whl#sha256=f5971a9226b701070a4bf2c38c89e5a3f0d64de8debda981d1db98583009122a
-pytz @ file:///home/vera/.cache/pypoetry/artifacts/22/ba/a3/ff470b30966276918d520152276ede47b738b1d3cad04bc898d0033386/pytz-2023.3-py2.py3-none-any.whl#sha256=a151b3abb88eda1d4e34a9814df37de2a80e301e68ba0fd856fb9b46bfbbbffb
-soupsieve @ file:///home/vera/.cache/pypoetry/artifacts/5f/e0/35/77f7c641af6742dd8d9e2fdde682b1fdb6661ada3056e505c2f188be0f/soupsieve-2.4.1-py3-none-any.whl#sha256=1c1bfee6819544a3447586c889157365a27e10d88cde3ad3da0cf0ddf646feb8
-sqlparse @ file:///home/vera/.cache/pypoetry/artifacts/13/99/38/f0ad478f31459589fb59aaf33e45103020fdc72e6f75cc9efcb7daf99f/sqlparse-0.4.4-py3-none-any.whl#sha256=5430a4fe2ac7d0f93e66f1efc6e1338a41884b7ddf2a350cedd20ccc4d9d28f3
+python==3.8.2
+Django==4.2.1
+gunicorn==20.1.0
+pip==23.1.2
+flake8==6.0.0
+python-dotenv==1.0.0
+django-bootstrap4==23.1
+i18n==0.2
+coverage==7.2.7
+django-filter==23.2
