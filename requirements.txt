@@ -22,7 +22,6 @@ blinker==1.4
 bootstrap4==0.1.0
 boto3==1.26.89
 botocore==1.29.89
-Brlapi==0.7.0
 Brotli==1.0.9
 bs4==0.0.1
 certifi==2019.11.28
