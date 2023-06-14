@@ -10,3 +10,5 @@ venv/
 .flaskenv
 .env/
 .env
+.coveragerc
+db.sqlite3

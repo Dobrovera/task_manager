@@ -47,6 +47,17 @@ html5lib = ["html5lib"]
 lxml = ["lxml"]
 
 [[package]]
+name = "coverage"
+version = "7.2.7"
+description = "Code coverage measurement for Python"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.extras]
+toml = ["tomli"]
+
+[[package]]
 name = "django"
 version = "4.2.1"
 description = "A high-level Python web framework that encourages rapid development and clean, pragmatic design."
@@ -198,13 +209,14 @@ python-versions = ">=2"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8.2"
-content-hash = "2e18ea73420790031ec53c3f142f9cd8858bf230ae034b86aefb1958cbb64bd8"
+content-hash = "09279135a52fdb359d7f9bd01a2e3b87715b32f6c73fe1814fe8060ed1896618"
 
 [metadata.files]
 asgiref = []
 babel = []
 "backports.zoneinfo" = []
 beautifulsoup4 = []
+coverage = []
 django = []
 django-bootstrap4 = []
 flake8 = []
