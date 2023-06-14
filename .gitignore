@@ -11,3 +11,4 @@ venv/
 .env
 .coveragerc
 db.sqlite3
+static/
