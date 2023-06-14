@@ -21,6 +21,8 @@ jobs:
       - name: make lint
         run: make lint
       - name: Run test
+        env:
+          SECRET_KEY: gj3cgrjbr1)0jrr1gnqgg2!zj@e@eajto+3%)*0)m2+9cei*hn
         run: make test
       - name: test coverage
         uses: paambaati/codeclimate-action@v3.0.0
