@@ -1,5 +1,4 @@
 alembic==1.10.2
-apturl==0.5.2
 argcomplete==2.0.0
 asciinema==2.2.0
 asgiref==3.6.0
