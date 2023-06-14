@@ -6,3 +6,9 @@ lint:
 
 build:
 	poetry build
+
+test:
+	coverage run manage.py test
+
+test-cov:
+	coverage xml

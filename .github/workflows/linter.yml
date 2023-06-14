@@ -20,3 +20,12 @@ jobs:
         run: python3 -m pip install --force dist/*.whl
       - name: make lint
         run: make lint
+      - name: Run test
+        run: make test
+      - name: test coverage
+        uses: paambaati/codeclimate-action@v3.0.0
+        env:
+          CC_TEST_REPORTER_ID: 8f688530706dc01d346a77c5c9a94dc8518dd2cb25e94c00a02f135b50049f66
+        with:
+          coverageCommand: make test-cov
+          debug: true
