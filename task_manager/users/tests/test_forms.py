@@ -3,6 +3,7 @@ from task_manager.users.forms import SignUpForm
 
 
 class TestUserForms(SimpleTestCase):
+    databases = '__all__'
 
     def test_sign_up_form_valid_data(self):
 
