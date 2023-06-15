@@ -19,6 +19,7 @@ i18n = "^0.2"
 coverage = "^7.2.7"
 django-filter = "^23.2"
 dj-database-url = "^2.0.0"
+psycopg2 = "^2.9.6"
 
 [tool.poetry.dev-dependencies]
 

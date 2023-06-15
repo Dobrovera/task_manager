@@ -158,6 +158,14 @@ optional = false
 python-versions = ">=3.6"
 
 [[package]]
+name = "psycopg2"
+version = "2.9.6"
+description = "psycopg2 - Python-PostgreSQL Database Adapter"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[[package]]
 name = "py"
 version = "1.11.0"
 description = "library with cross-python path, ini-parsing, io, code, log facilities"
@@ -240,7 +248,7 @@ python-versions = ">=2"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8.2"
-content-hash = "4191c43ff67ba1b40426c00d4b8a0c3e2f6c0cd850d2d325f8d6a0c72fde660c"
+content-hash = "022080f025ece7451f2c893c8755089f1a170b304318a65ff2cfa113b36a6088"
 
 [metadata.files]
 asgiref = []
@@ -256,6 +264,7 @@ flake8 = []
 gunicorn = []
 i18n = []
 mccabe = []
+psycopg2 = []
 py = [
     {file = "py-1.11.0-py2.py3-none-any.whl", hash = "sha256:607c53218732647dff4acdfcd50cb62615cedf612e72d1724fb1a0cc6405b378"},
     {file = "py-1.11.0.tar.gz", hash = "sha256:51c75c4126074b472f746a24399ad32f6053d1b34b68d2fa41e558e6f4a98719"},
