@@ -35,11 +35,11 @@
             </tr>
             </thead>
             <tbody>
-            {% for task in filter.qs %}
+            {% for task in filter.qs.order_by %}
                 <tr>
                     <th scope="row">{{ task.id }}</th>
                     <td>
-                        <a href="{% url 'task_card' id=task.id %}">{{ task.name }}</td>
+                        <a href="{% url 'task_card' id=task.id %}">{{ task.name }}</a></td>
                     <td>{{ task.status }}</td>
                     <td>{{ task.author.first_name }} {{ task.author.last_name }}</td>
                     <td>{{ task.executor.first_name }} {{ task.executor.last_name }}</td>

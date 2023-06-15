@@ -11,7 +11,7 @@ class StatusesListView(View):
 
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
-            statuses = Status.objects.all()
+            statuses = Status.objects.all().order_by('id')
             return render(request, 'statuses/statuses.html', context={
                 "statuses": statuses,
             })
