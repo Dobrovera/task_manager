@@ -97,7 +97,7 @@ WSGI_APPLICATION = 'task_manager.wsgi.application'
 }
 '''
 
-DATABASE_URL = postgresql://postgres:FVmWI3Kk1pwckDvjstcf@containers-us-west-57.railway.app:6616/railway
+DATABASE_URL = 'postgresql://postgres:FVmWI3Kk1pwckDvjstcf@containers-us-west-57.railway.app:6616/railway'
 
 DATABASES = {
     'default': dj_database_url.config(default=DATABASE_URL, conn_max_age=1800)
