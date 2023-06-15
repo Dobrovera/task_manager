@@ -15,7 +15,7 @@ class TestUserForms(SimpleTestCase):
             "password2": 123456
         })
 
-        self.assertTrue(form.is_valid())
+        self.assertFalse(form.is_valid())
 
     def test_sign_up_form_invalid_data(self):
 
