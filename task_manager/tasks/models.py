@@ -21,3 +21,6 @@ class Task(models.Model):
     name = models.CharField(max_length=250, verbose_name=gettext('Name'))
     created_at = models.DateTimeField(auto_now_add=True,
                                       verbose_name=gettext('created_at'))
+
+    class Meta:
+        ordering = ['id']
