@@ -11,7 +11,7 @@ class LabelsListView(View):
 
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
-            labels = Label.objects.all()
+            labels = Label.objects.all().order_by(id)
             return render(request, 'labels/labels.html', context={
                 "labels": labels,
             })
