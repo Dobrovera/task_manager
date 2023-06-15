@@ -43,7 +43,7 @@ Flask-WTF==0.15.1
 gunicorn==20.1.0
 hexlet-code==0.1.0
 i18n==0.2
-idna==2.8
+idna==3.4
 importlib-resources==5.12.0
 ipython==8.12.2
 itsdangerous==1.1.0
@@ -74,11 +74,11 @@ Pygments==2.15.1
 PyMySQL==0.9.3
 pyrsistent==0.19.3
 python-dateutil==2.8.2
-python-dotenv==0.10.3
+python-dotenv==1.0.0
 python-editor==1.0.4
 pytz==2023.3
 PyYAML==5.3.1
-requests==2.22.0
+requests==2.31.0
 rollbar==0.16.3
 six==1.16.0
 soupsieve==2.4.1
