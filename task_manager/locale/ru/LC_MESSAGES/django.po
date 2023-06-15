@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-15 16:20+0300\n"
+"POT-Creation-Date: 2023-06-15 16:30+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -302,19 +302,19 @@ msgstr "Подтверждение пароля"
 msgid "Enter the same password as before, for verification."
 msgstr "Введите тот же пароль, что и раньше, для проверки."
 
-#: task_manager/users/views.py:25
+#: task_manager/users/views.py:26
 msgid "You are logged out"
 msgstr "Вы разлогинены"
 
-#: task_manager/users/views.py:38
+#: task_manager/users/views.py:39
 msgid "User successfully registered"
 msgstr "Пользователь успешно зарегистрирован"
 
-#: task_manager/users/views.py:60
+#: task_manager/users/views.py:61
 msgid "You are logged in"
 msgstr "Вы залогинены"
 
-#: task_manager/users/views.py:63
+#: task_manager/users/views.py:64
 msgid ""
 "Please enter the correct username and password. Both fields can be case "
 "sensitive."
@@ -322,22 +322,21 @@ msgstr ""
 "Пожалуйста, введите правильные имя пользователя и пароль. Оба поля могут "
 "быть чувствительны к регистру."
 
-#: task_manager/users/views.py:77 task_manager/users/views.py:87
-#: task_manager/users/views.py:111 task_manager/users/views.py:118
-#: task_manager/users/views.py:131 task_manager/users/views.py:147
+#: task_manager/users/views.py:78 task_manager/users/views.py:88
+#: task_manager/users/views.py:117 task_manager/users/views.py:124
+#: task_manager/users/views.py:137 task_manager/users/views.py:153
 msgid "You do not have rights to change another user."
 msgstr "У вас нет прав для изменения другого пользователя."
 
-#: task_manager/users/views.py:99
+#: task_manager/users/views.py:104
 msgid "User deleted successfully"
 msgstr "Пользователь успешно удален"
 
-#: task_manager/users/views.py:104
-
+#: task_manager/users/views.py:110
 msgid "Unable to delete user because he used"
-msgstr "Unable to delete user because he used"
+msgstr "Невозможно удалить пользователя, потому что он используется"
 
-#: task_manager/users/views.py:156
+#: task_manager/users/views.py:162
 msgid "User successfully updated"
 msgstr "Пользователь успешно изменен"
 
