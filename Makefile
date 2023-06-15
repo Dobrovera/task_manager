@@ -12,3 +12,10 @@ test:
 
 test-cov:
 	coverage xml
+
+migration:
+	poetry run python3 manage.py makemigrations
+
+migrate:
+	poetry run python3 manage.py migrate
+
