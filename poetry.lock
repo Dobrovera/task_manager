@@ -312,7 +312,7 @@ zstd = ["zstandard (>=0.18.0)"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8.2"
-content-hash = "555f1c36875bc7b7289112292fd39f585beb99c51600b2e6859233f20e736080"
+content-hash = "84dca7a1c7ca0ff3cd3ac5c9ca7c34d1ac481daa9b3932eb631446ed2ca9a7df"
 
 [metadata.files]
 asgiref = []

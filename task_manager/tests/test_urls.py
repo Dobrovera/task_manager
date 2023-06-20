@@ -7,5 +7,4 @@ class TestUrls(SimpleTestCase):
 
     def test_login_url(self):
         url = reverse('login')
-        print(resolve(url))
         self.assertEquals(resolve(url).func.view_class, LoginView)
