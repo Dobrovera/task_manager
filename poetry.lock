@@ -75,15 +75,11 @@ toml = ["tomli"]
 
 [[package]]
 name = "dj-database-url"
-version = "2.0.0"
+version = "0.5.0"
 description = "Use Database URLs in your Django Application."
 category = "main"
 optional = false
 python-versions = "*"
-
-[package.dependencies]
-Django = ">=3.2"
-typing-extensions = ">=3.10.0.0"
 
 [[package]]
 name = "django"
@@ -292,14 +288,6 @@ doc = ["sphinx"]
 test = ["pytest", "pytest-cov"]
 
 [[package]]
-name = "typing-extensions"
-version = "4.6.3"
-description = "Backported and Experimental Type Hints for Python 3.7+"
-category = "main"
-optional = false
-python-versions = ">=3.7"
-
-[[package]]
 name = "tzdata"
 version = "2023.3"
 description = "Provider of IANA time zone data"
@@ -324,7 +312,7 @@ zstd = ["zstandard (>=0.18.0)"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8.2"
-content-hash = "64977d8898e19b71b3e129ffd15b9dffe8f4c4575dbbc61e959c55d330370261"
+content-hash = "31525d8331749dc6f585fa47e771525126c52fde730e4d988d33ca76e4488c47"
 
 [metadata.files]
 asgiref = []
@@ -357,6 +345,5 @@ rollbar = []
 six = []
 soupsieve = []
 sqlparse = []
-typing-extensions = []
 tzdata = []
 urllib3 = []
