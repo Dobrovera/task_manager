@@ -4,3 +4,5 @@ omit =
     /usr/*
     */migrations/*
     */tests/*
+    */__init__.py
+    */admin.py
