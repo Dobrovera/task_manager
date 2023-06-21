@@ -64,7 +64,7 @@ class TestViews(TestCase):
         self.assertTemplateUsed(response, template_name='users/update.html')
 
     def test_UserUpdateView_POST(self):
-        user = User.objects.get(username='test_2')
+        user = User.objects.get(username='test_1')
         self.client.force_login(user)
         response = self.client.post(
             reverse('update', kwargs={'id': user.id}),
@@ -81,3 +81,17 @@ class TestViews(TestCase):
         self.assertEqual(user.username, 'test_update')
         self.assertEqual(user.username, 'test_update')
         self.assertRedirects(response, reverse('users'))
+
+    def test_UserDeleteView_POST(self):
+        user = User.objects.get(username='test_2')
+        self.client.force_login(user)
+        response = self.client.get(
+            reverse('delete', kwargs={'id': user.id}),
+            follow=True
+        )
+        self.assertEquals(response.status_code, 200)
+        response = self.client.post(
+            reverse('delete', kwargs={'id': user.id})
+        )
+        self.assertNotContains(response, 'delete', status_code=302)
+        self.assertEqual(User.objects.count(), 1)
