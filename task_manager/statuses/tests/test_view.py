@@ -32,6 +32,16 @@ class TestViews(TestCase):
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'statuses/statuses.html')
 
+    def test_StatusCreateView_GET(self):
+        response = self.client.get(self.create_status)
+        self.assertEquals(response.status_code, 302)
+
+        user = User.objects.get(username='test_5')
+        self.client.force_login(user)
+        response = self.client.get(self.create_status)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'statuses/statuses_create.html')
+
     def test_StatusCreateView_POST(self):
         response = self.client.post(
             '/statuses/create/',
@@ -46,6 +56,11 @@ class TestViews(TestCase):
 
     def test_StatusUpdateView_POST(self):
         status = Status.objects.get(status_name='test_status')
+        response = self.client.get(
+            reverse('update_status', args=(status.id,)), follow=True
+        )
+        self.assertEqual(response.status_code, 200)
+
         user = User.objects.get(username='test_5')
         self.client.force_login(user)
         response = self.client.post(

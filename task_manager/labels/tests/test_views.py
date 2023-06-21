@@ -23,6 +23,9 @@ class TestViews(TestCase):
         )
 
     def test_LabelsListView_GET(self):
+        response = self.client.get(self.labels)
+        self.assertEquals(response.status_code, 302)
+
         user = User.objects.get(username='test_1')
         self.client.force_login(user)
         response = self.client.get(self.labels)
