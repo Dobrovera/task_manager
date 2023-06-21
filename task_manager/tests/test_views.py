@@ -8,3 +8,4 @@ class TestViews(TestCase):
     def test_indexView(self):
         url = reverse('home')
         self.assertEquals(resolve(url).func, index)
+        self.assertTemplateUsed('index.html')

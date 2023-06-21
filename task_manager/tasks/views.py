@@ -69,8 +69,8 @@ class TaskCreateView(View):
 class TaskUpdateView(View):
 
     def get(self, request, *args, **kwargs):
-        task = get_object_or_404(Task, id=kwargs['id'])
         if request.user.is_authenticated:
+            task = get_object_or_404(Task, id=kwargs['id'])
             form = TaskUpdateForm(task.id, {
                 "name": task.name,
                 "description": task.description,
@@ -105,8 +105,8 @@ class TaskUpdateView(View):
 
 class TaskDeleteView(View):
     def get(self, request, *args, **kwargs):
-        task = get_object_or_404(Task, id=kwargs['id'])
         if request.user.is_authenticated:
+            task = get_object_or_404(Task, id=kwargs['id'])
             if task.author_id == request.user.id:
                 task = get_object_or_404(Task, id=kwargs['id'])
                 return render(request, 'tasks/task_delete.html',

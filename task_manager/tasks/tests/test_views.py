@@ -53,9 +53,15 @@ class TestViews(TestCase):
             template_name='tasks/tasks.html'
         )
 
-    def test_TaskCreateView_POST(self):
+    def test_TaskCreateView_GET_and_POST(self):
+        response = self.client.get(self.task_create_url)
+        self.assertEquals(response.status_code, 302)
+
         user = User.objects.get(username='test_author')
         self.client.force_login(user)
+        response = self.client.get(self.task_create_url)
+        self.assertEquals(response.status_code, 200)
+
         response = self.client.post(
             reverse('create_task'),
             {
@@ -67,6 +73,7 @@ class TestViews(TestCase):
             }
         )
         self.assertEqual(response.status_code, 302)
+
         task = Task.objects.get(name='test_task')
         self.assertEqual(task.name, "test_task")
         self.assertEqual(task.author, self.author)
@@ -74,7 +81,7 @@ class TestViews(TestCase):
         self.assertEqual(task.status.id, self.status.id)
         self.assertEqual(task.executor.id, self.executor.id)
 
-    def test_TaskUpdateView_POST(self):
+    def test_TaskUpdateView_GET_and_POST(self):
         user = User.objects.get(username='test_author')
         self.client.force_login(user)
         task = Task.objects.get(name='test_task_one')
@@ -113,7 +120,11 @@ class TestViews(TestCase):
             reverse('delete_task', args=(task.id,)), follow=True
         )
         self.assertEquals(response.status_code, 200)
+
+        user = User.objects.get(username='test_author')
+        self.client.force_login(user)
         response = self.client.post(
             reverse('delete_task', kwargs={'id': task.id})
         )
         self.assertNotContains(response, 'delete_task', status_code=302)
+        self.assertEqual(Task.objects.count(), 0)
