@@ -110,9 +110,9 @@ class TestViews(TestCase):
         )
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(
-                    response,
-                    template_name='tasks/task_update.html'
-                )
+            response,
+            template_name='tasks/task_update.html'
+        )
 
     def test_TaskDeleteView_GET_and_POST(self):
         task = Task.objects.get(name='test_task_one')
