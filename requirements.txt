@@ -18,7 +18,7 @@ click==7.1.2
 coverage==7.2.7
 decorator==5.1.1
 distlib==0.3.6
-dj-database-url==0.5.0
+dj-database-url==2.0.0
 Django==4.2.2
 django-bootstrap4==23.1
 django-filter==23.2
