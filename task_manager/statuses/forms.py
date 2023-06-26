@@ -22,7 +22,7 @@ class UpdateStatusForm(UserChangeForm):
         self.status_id = status_id
 
     name = forms.CharField(
-        label=gettext("name"),
+        label=gettext("Name"),
         strip=False,
         widget=forms.TextInput(),
         help_text='',
@@ -31,7 +31,7 @@ class UpdateStatusForm(UserChangeForm):
     def save(self, commit=True):
 
         status = Status.objects.get(id=self.status_id)
-        status.name = self.cleaned_data.get('name')
+        status.name = self.cleaned_data.get('Name')
         status.save()
         if hasattr(self, "save_m2m"):
             self.save_m2m()
