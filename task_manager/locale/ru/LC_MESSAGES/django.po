@@ -21,7 +21,7 @@ msgstr ""
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
 #: task_manager/labels/forms.py:24
-msgid "label_name"
+msgid "name"
 msgstr "Имя"
 
 #: task_manager/labels/models.py:9 task_manager/statuses/models.py:9

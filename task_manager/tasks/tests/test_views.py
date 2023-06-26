@@ -86,7 +86,7 @@ class TestViews(TestCase):
         self.client.force_login(user)
         task = Task.objects.get(name='test_task_one')
         response = self.client.post(
-            '/tasks/10/update',
+            '/tasks/10/update/',
             {
                 'name': 'test_task_upd',
                 'author': self.author,
@@ -99,7 +99,7 @@ class TestViews(TestCase):
         self.assertTrue(Task.objects.filter(name="test_task_upd"))
 
         response = self.client.post(
-            '/tasks/10/update',
+            '/tasks/10/update/',
             {
                 'name': 'test_task_upd',
                 'author': self.author,

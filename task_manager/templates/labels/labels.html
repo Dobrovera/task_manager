@@ -27,7 +27,7 @@
           {% for label in labels %}
             <tr>
               <th scope="row">{{ label.id }}</th>
-              <td>{{ label.label_name }}</td>
+              <td>{{ label.name }}</td>
               <td>{{ label.created_at }}</td>
               <td>
                 <a href="{% url 'update_label' id=label.id%}">{% trans 'Update' %}</a>

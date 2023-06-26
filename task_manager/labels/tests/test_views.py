@@ -13,7 +13,7 @@ class TestViews(TestCase):
         self.create_label = reverse('create_label')
         self.labels = reverse('labels')
         Label.objects.create(
-            label_name='test_label'
+            name='test_label'
         )
         User.objects.create(
             username='test_1',
@@ -46,17 +46,17 @@ class TestViews(TestCase):
         response = self.client.post(
             '/labels/create/',
             {
-                'label_name': 'label_name_1',
+                'name': 'label_name_1',
             }
         )
         self.assertEqual(response.status_code, 302)
         user = User.objects.get(username='test_1')
         self.client.force_login(user)
         self.assertEqual(response.status_code, 302)
-        self.assertTrue(Label.objects.filter(label_name="label_name_1"))
+        self.assertTrue(Label.objects.filter(name="label_name_1"))
 
     def test_LabelDeleteView_GET_and_POST(self):
-        label = Label.objects.get(label_name='test_label')
+        label = Label.objects.get(name='test_label')
         response = self.client.get(
             reverse('delete_label', args=(label.id,)), follow=True
         )

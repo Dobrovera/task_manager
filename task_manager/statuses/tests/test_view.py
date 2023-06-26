@@ -64,7 +64,7 @@ class TestViews(TestCase):
         user = User.objects.get(username='test_5')
         self.client.force_login(user)
         response = self.client.post(
-            '/statuses/1/update',
+            '/statuses/1/update/',
             {'name': 'test_status_upd'}, kwargs={'id': status.id})
         self.assertEqual(response.status_code, 302)
         self.assertTrue(Status.objects.filter(name='test_status_upd'))

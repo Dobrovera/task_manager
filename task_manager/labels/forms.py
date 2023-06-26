@@ -9,7 +9,7 @@ class LabelsForm(forms.ModelForm):
     class Meta:
         model = Label
         fields = (
-            'label_name',
+            'name',
         )
 
 
@@ -20,8 +20,8 @@ class UpdateLabelForm(UserChangeForm):
         super(UserChangeForm, self).__init__(*args, **kwargs)
         self.label_id = label_id
 
-    label_name = forms.CharField(
-        label=gettext("label_name"),
+    name = forms.CharField(
+        label=gettext("name"),
         strip=False,
         widget=forms.TextInput(),
         help_text='',
@@ -33,7 +33,7 @@ class UpdateLabelForm(UserChangeForm):
         # вместо того, чтобы изменять юзера создавал нового юзера.
 
         label = Label.objects.get(id=self.label_id)
-        label.label_name = self.cleaned_data.get('label_name')
+        label.name = self.cleaned_data.get('name')
         label.save()
         if hasattr(self, "save_m2m"):
             self.save_m2m()
@@ -42,5 +42,5 @@ class UpdateLabelForm(UserChangeForm):
     class Meta:
         model = Label
         fields = (
-            'label_name',
+            'name',
         )

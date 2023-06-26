@@ -38,8 +38,8 @@ class LabelCreateView(View):
     def post(self, request, *args, **kwargs):
         form = LabelsForm(request.POST)
         if form.is_valid():
-            if form['label_name'].value() not in \
-                    Label.objects.values_list('label_name',
+            if form['name'].value() not in \
+                    Label.objects.values_list('name',
                                               flat=True).distinct():
                 form.save()
                 messages.success(request, gettext(
@@ -63,8 +63,8 @@ class LabelUpdateView(View):
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
             label = get_object_or_404(Label, id=kwargs['id'])
-            label_name = label.label_name
-            form = UpdateLabelForm(label.id, {"label_name": label_name})
+            label_name = label.name
+            form = UpdateLabelForm(label.id, {"name": label_name})
             return render(request, 'labels/label_update.html', context={
                 "label": label,
                 "form": form,
@@ -77,8 +77,8 @@ class LabelUpdateView(View):
     def post(self, request, *args, **kwargs):
         label = get_object_or_404(Label, id=kwargs['id'])
         form = UpdateLabelForm(label.id, request.POST)
-        if request.POST['label_name'] not in \
-                Label.objects.all().values_list('label_name',
+        if request.POST['name'] not in \
+                Label.objects.all().values_list('name',
                                                 flat=True):
             if form.is_valid():
                 form.save()

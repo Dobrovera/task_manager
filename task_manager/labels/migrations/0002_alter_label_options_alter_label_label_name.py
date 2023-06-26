@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
         ),
         migrations.AlterField(
             model_name='label',
-            name='label_name',
+            name='name',
             field=models.CharField(
                 error_messages={
                     "unique": '%(model_name)s с таким именем уже существует.'
