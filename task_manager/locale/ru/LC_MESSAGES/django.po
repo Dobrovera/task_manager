@@ -67,8 +67,6 @@ msgid "Can't delete label because it's in use"
 msgstr "Невозможно удалить метку, потому что она используется"
 
 #: task_manager/statuses/models.py:11
-#, fuzzy
-#| msgid "A task with this name already exists"
 msgid "Task status with this name already exists."
 msgstr "Task status с таким Имя уже существует"
 
