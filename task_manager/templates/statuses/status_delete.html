@@ -5,7 +5,7 @@
 
 <div class="col-md-8 order-md-1 container py-5">
     <h1 class="mt-1">{% trans 'Deleting a status' %}</h1>
-        <p class="lead">{% trans 'Are you sure you want to delete' %} {{ status.status_name }}</p>
+        <p class="lead">{% trans 'Are you sure you want to delete' %} {{ status.name }}</p>
     <form action="" method="post">
         {% csrf_token %}
         <button class="btn btn-danger" type="submit">{% trans 'Yes, delete' %}</button>

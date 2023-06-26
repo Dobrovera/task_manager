@@ -20,7 +20,7 @@ class Migration(migrations.Migration):
                     serialize=False,
                     verbose_name='ID'
                 )),
-                ('status_name', models.CharField(max_length=250)),
+                ('name', models.CharField(max_length=250)),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
             ],
         ),

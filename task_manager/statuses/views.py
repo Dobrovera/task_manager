@@ -78,8 +78,8 @@ class StatusUpdateView(View):
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
             status = get_object_or_404(Status, id=kwargs['id'])
-            status_name = status.status_name
-            form = UpdateStatusForm(status.id, {"status_name": status_name})
+            status_name = status.name
+            form = UpdateStatusForm(status.id, {"name": status_name})
             return render(request, 'statuses/status_update.html', context={
                 "status": status,
                 "form": form,

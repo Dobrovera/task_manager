@@ -25,7 +25,7 @@ class TestViews(TestCase):
             last_name='test_executor',
         )
         self.status = Status.objects.create(
-            status_name='test_status'
+            name='test_status'
         )
         self.client.login(username='test_author', password='test_author')
         Task.objects.create(
@@ -37,7 +37,7 @@ class TestViews(TestCase):
             executor_id=self.executor.id,
         )
         Status.objects.create(
-            status_name='test_status_name'
+            name='test_status_name'
         )
 
     def test_TasksListView_GET(self):

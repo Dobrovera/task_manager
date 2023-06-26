@@ -13,7 +13,7 @@ class TestViews(TestCase):
         self.statuses = reverse('statuses')
         Status.objects.create(
             id=1,
-            status_name='test_status'
+            name='test_status'
         )
         User.objects.create(
             username='test_5',
@@ -46,16 +46,16 @@ class TestViews(TestCase):
         response = self.client.post(
             '/statuses/create/',
             {
-                'status_name': 'status_name_1',
+                'name': 'status_name_1',
             }
         )
         user = User.objects.get(username='test_5')
         self.client.force_login(user)
         self.assertEqual(response.status_code, 302)
-        self.assertTrue(Status.objects.filter(status_name="status_name_1"))
+        self.assertTrue(Status.objects.filter(name="status_name_1"))
 
     def test_StatusUpdateView_POST(self):
-        status = Status.objects.get(status_name='test_status')
+        status = Status.objects.get(name='test_status')
         response = self.client.get(
             reverse('update_status', args=(status.id,)), follow=True
         )
@@ -65,12 +65,12 @@ class TestViews(TestCase):
         self.client.force_login(user)
         response = self.client.post(
             '/statuses/1/update',
-            {'status_name': 'test_status_upd'}, kwargs={'id': status.id})
+            {'name': 'test_status_upd'}, kwargs={'id': status.id})
         self.assertEqual(response.status_code, 302)
-        self.assertTrue(Status.objects.filter(status_name='test_status_upd'))
+        self.assertTrue(Status.objects.filter(name='test_status_upd'))
 
     def test_StatusesDeleteView_GET_and_POST(self):
-        status = Status.objects.get(status_name='test_status')
+        status = Status.objects.get(name='test_status')
         response = self.client.get(
             reverse('delete_label', args=(status.id,)), follow=True
         )

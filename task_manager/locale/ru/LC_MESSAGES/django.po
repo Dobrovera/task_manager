@@ -67,7 +67,7 @@ msgid "Can't delete label because it's in use"
 msgstr "Невозможно удалить метку, потому что она используется"
 
 #: task_manager/statuses/forms.py:25
-msgid "status_name"
+msgid "name"
 msgstr "Имя"
 
 #: task_manager/statuses/models.py:19 task_manager/tasks/models.py:13

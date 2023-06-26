@@ -3,7 +3,7 @@ from django.utils.translation import gettext
 
 
 class Status(models.Model):
-    status_name = models.CharField(
+    name = models.CharField(
         max_length=250,
         unique=True,
         verbose_name=gettext('Name'),
@@ -13,7 +13,7 @@ class Status(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return "%s" % self.status_name
+        return "%s" % self.name
 
     class Meta:
         verbose_name = gettext('Status')

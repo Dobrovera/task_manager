@@ -9,7 +9,7 @@ class StatusesForm(forms.ModelForm):
     class Meta:
         model = Status
         fields = (
-            'status_name',
+            'name',
         )
 
 
@@ -21,8 +21,8 @@ class UpdateStatusForm(UserChangeForm):
         super(UserChangeForm, self).__init__(*args, **kwargs)
         self.status_id = status_id
 
-    status_name = forms.CharField(
-        label=gettext("status_name"),
+    name = forms.CharField(
+        label=gettext("name"),
         strip=False,
         widget=forms.TextInput(),
         help_text='',
@@ -30,11 +30,8 @@ class UpdateStatusForm(UserChangeForm):
 
     def save(self, commit=True):
 
-        # написала кастомный save, так как стандартный save базового класса
-        # вместо того, чтобы изменять юзера создавал нового юзера
-
         status = Status.objects.get(id=self.status_id)
-        status.status_name = self.cleaned_data.get('status_name')
+        status.name = self.cleaned_data.get('name')
         status.save()
         if hasattr(self, "save_m2m"):
             self.save_m2m()
@@ -43,5 +40,5 @@ class UpdateStatusForm(UserChangeForm):
     class Meta:
         model = Status
         fields = (
-            'status_name',
+            'name',
         )
