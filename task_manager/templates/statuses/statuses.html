@@ -17,7 +17,7 @@
         <table class="table table-striped">
           <thead class="thead-dark">
             <tr>
-              <th scope="col">id</th>
+              <th scope="col">ID</th>
               <th scope="col">{% trans 'Name' %}</th>
               <th scope="col">{% trans 'Date of creation' %}</th>
               <th scope="col"> </th>
@@ -26,7 +26,7 @@
           <tbody>
           {% for status in statuses %}
             <tr>
-              <th scope="row">{{ status.id }}</th>
+              <td>{{ status.id }}</td>
               <td>{{ status.status_name }}</td>
               <td>{{ status.created_at }}</td>
               <td>
