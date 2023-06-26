@@ -21,7 +21,7 @@ class UpdateLabelForm(UserChangeForm):
         self.label_id = label_id
 
     name = forms.CharField(
-        label=gettext("name"),
+        label=gettext("Name"),
         strip=False,
         widget=forms.TextInput(),
         help_text='',
