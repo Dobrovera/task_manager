@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-26 11:39+0300\n"
+"POT-Creation-Date: 2023-06-26 11:55+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -204,9 +204,12 @@ msgstr "Дата создания"
 msgid "Delete"
 msgstr "Удалить"
 
-#: task_manager/templates/login.html:15 task_manager/templates/login.html:21
-#: task_manager/templates/navbar.html:68
+#: task_manager/templates/login.html:15 task_manager/templates/navbar.html:68
 msgid "Login"
+msgstr "Вход"
+
+#: task_manager/templates/login.html:21
+msgid "Log in"
 msgstr "Вход"
 
 #: task_manager/templates/navbar.html:38
@@ -234,7 +237,6 @@ msgstr "Выход"
 
 #: task_manager/templates/navbar.html:71
 #: task_manager/templates/users/create.html:13
-#: task_manager/templates/users/create.html:17
 msgid "Sign Up"
 msgstr "Регистрация"
 
@@ -271,6 +273,10 @@ msgstr "Изменение задачи"
 #: task_manager/templates/tasks/tasks.html:21
 msgid "Show"
 msgstr "Показать"
+
+#: task_manager/templates/users/create.html:17
+msgid "Signup"
+msgstr "Зарегистрировать"
 
 #: task_manager/templates/users/delete.html:7
 msgid "Deleting a user"
@@ -337,9 +343,6 @@ msgstr "Невозможно удалить пользователя, потом
 #: task_manager/users/views.py:162
 msgid "User successfully updated"
 msgstr "Пользователь успешно изменен"
-
-#~ msgid "Log in"
-#~ msgstr "Вход"
 
 #, fuzzy
 #~| msgid "Log Out"
