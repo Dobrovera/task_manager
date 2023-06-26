@@ -1,7 +1,17 @@
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from django.core.exceptions import ValidationError
+from django.utils.translation import gettext
+from django.contrib.auth.forms import UserCreationForm
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import User
 from django import forms
+
+
+def username_already_exist(value):
+    if value in User.objects.all().values_list('username', flat=True):
+        raise ValidationError(
+            gettext("User with the same name already exists."),
+            params={"value": value},
+        )
 
 
 class SignUpForm(UserCreationForm):
@@ -20,22 +30,24 @@ class SignUpForm(UserCreationForm):
         )
 
 
-class UpdateUserForm(UserChangeForm):
+class UpdateUserForm(UserCreationForm):
     password = None
 
     username = forms.CharField(
         label=_("Username"),
         widget=forms.TextInput(),
         strip=False,
-        help_text="Obligatory field. No more than 150 characters. "
-                  "Letters, numbers and symbols @/./+/-/_ only."
+        help_text=_("Obligatory field. No more than 150 characters. "
+                    "Letters, numbers and symbols @/./+/-/_ only."),
     )
+
     password1 = forms.CharField(
         label=_("Password"),
         strip=False,
         widget=forms.PasswordInput(),
-        help_text='Ваш пароль должен содержать как минимум 3 символа.',
+        help_text=_("Your password must be at least 3 characters long."),
     )
+
     password2 = forms.CharField(
         label=_("Password confirmation"),
         widget=forms.PasswordInput(),
@@ -44,7 +56,7 @@ class UpdateUserForm(UserChangeForm):
     )
 
     def __init__(self, user_id, *args, **kwargs):
-        super(UserChangeForm, self).__init__(*args, **kwargs)
+        super(UserCreationForm, self).__init__(*args, **kwargs)
         self.user_id = user_id
 
     def save(self, commit=True):
@@ -68,4 +80,5 @@ class UpdateUserForm(UserChangeForm):
         fields = (
             "first_name",
             "last_name",
+            "username"
         )

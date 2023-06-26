@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-26 11:55+0300\n"
+"POT-Creation-Date: 2023-06-26 13:00+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -286,7 +286,7 @@ msgstr "Удаление пользователя"
 msgid "User change"
 msgstr "Изменение пользователя"
 
-#: task_manager/templates/users/users.html:19 task_manager/users/forms.py:27
+#: task_manager/templates/users/users.html:19 task_manager/users/forms.py:37
 msgid "Username"
 msgstr "Имя пользователя"
 
@@ -294,15 +294,31 @@ msgstr "Имя пользователя"
 msgid "Full name"
 msgstr "Полное имя"
 
-#: task_manager/users/forms.py:34
+#: task_manager/users/forms.py:12
+#, fuzzy
+#| msgid "A task with this name already exists"
+msgid "User with the same name already exists."
+msgstr "Задача с таким именем уже существует"
+
+#: task_manager/users/forms.py:40
+msgid ""
+"Obligatory field. No more than 150 characters. Letters, numbers and symbols "
+"@/./+/-/_ only."
+msgstr "Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./+/-/_."
+
+#: task_manager/users/forms.py:45
 msgid "Password"
 msgstr "Пароль"
 
-#: task_manager/users/forms.py:40
+#: task_manager/users/forms.py:48
+msgid "Your password must be at least 3 characters long."
+msgstr "Ваш пароль должен содержать как минимум 3 символа."
+
+#: task_manager/users/forms.py:52
 msgid "Password confirmation"
 msgstr "Подтверждение пароля"
 
-#: task_manager/users/forms.py:43
+#: task_manager/users/forms.py:55
 msgid "Enter the same password as before, for verification."
 msgstr "Введите тот же пароль, что и раньше, для проверки."
 
