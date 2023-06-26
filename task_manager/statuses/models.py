@@ -8,7 +8,7 @@ class Status(models.Model):
         unique=True,
         verbose_name=gettext('Name'),
         error_messages={
-            "unique": gettext("%(model_name)s with this name already exists.")
+            "unique": gettext("Task status with this name already exists.")
         })
     created_at = models.DateTimeField(auto_now_add=True)
 

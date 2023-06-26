@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-26 13:00+0300\n"
+"POT-Creation-Date: 2023-06-26 16:27+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,7 +20,7 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: task_manager/labels/forms.py:24
+#: task_manager/labels/forms.py:24 task_manager/statuses/forms.py:25
 msgid "name"
 msgstr "Имя"
 
@@ -31,10 +31,10 @@ msgstr "Имя"
 msgid "Name"
 msgstr "Имя"
 
-#: task_manager/labels/models.py:11 task_manager/statuses/models.py:11
+#: task_manager/labels/models.py:11
 #, python-format
 msgid "%(model_name)s with this name already exists."
-msgstr "%(model_name)s с таким именем уже существует."
+msgstr "%(model_name)s с таким Имя уже существует."
 
 #: task_manager/labels/models.py:19 task_manager/tasks/filters.py:11
 #: task_manager/tasks/models.py:18
@@ -66,9 +66,11 @@ msgstr "Метка успешно удалена"
 msgid "Can't delete label because it's in use"
 msgstr "Невозможно удалить метку, потому что она используется"
 
-#: task_manager/statuses/forms.py:25
-msgid "name"
-msgstr "Имя"
+#: task_manager/statuses/models.py:11
+#, fuzzy
+#| msgid "A task with this name already exists"
+msgid "Task status with this name already exists."
+msgstr "Task status с таким Имя уже существует"
 
 #: task_manager/statuses/models.py:19 task_manager/tasks/models.py:13
 #: task_manager/templates/tasks/task_card.html:25
@@ -210,7 +212,7 @@ msgstr "Вход"
 
 #: task_manager/templates/login.html:21
 msgid "Log in"
-msgstr "Вход"
+msgstr "Войти"
 
 #: task_manager/templates/navbar.html:38
 msgid "Task manager"
@@ -295,30 +297,18 @@ msgid "Full name"
 msgstr "Полное имя"
 
 #: task_manager/users/forms.py:12
-#, fuzzy
-#| msgid "A task with this name already exists"
 msgid "User with the same name already exists."
-msgstr "Задача с таким именем уже существует"
+msgstr "Пользователь с таким именем уже существует"
 
-#: task_manager/users/forms.py:40
-msgid ""
-"Obligatory field. No more than 150 characters. Letters, numbers and symbols "
-"@/./+/-/_ only."
-msgstr "Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./+/-/_."
-
-#: task_manager/users/forms.py:45
+#: task_manager/users/forms.py:44
 msgid "Password"
 msgstr "Пароль"
 
-#: task_manager/users/forms.py:48
-msgid "Your password must be at least 3 characters long."
-msgstr "Ваш пароль должен содержать как минимум 3 символа."
-
-#: task_manager/users/forms.py:52
+#: task_manager/users/forms.py:50
 msgid "Password confirmation"
 msgstr "Подтверждение пароля"
 
-#: task_manager/users/forms.py:55
+#: task_manager/users/forms.py:53
 msgid "Enter the same password as before, for verification."
 msgstr "Введите тот же пароль, что и раньше, для проверки."
 
@@ -360,16 +350,12 @@ msgstr "Невозможно удалить пользователя, потом
 msgid "User successfully updated"
 msgstr "Пользователь успешно изменен"
 
-#, fuzzy
-#~| msgid "Log Out"
-#~ msgid "Log out"
-#~ msgstr "Выход"
+#~ msgid ""
+#~ "Obligatory field. No more than 150 characters. Letters, numbers and "
+#~ "symbols @/./+/-/_ only."
+#~ msgstr ""
+#~ "Обязательное поле. Не более 150 символов. Только буквы, цифры и символы "
+#~ "@/./+/-/_."
 
-#~ msgid "A label with this name already exists"
-#~ msgstr "Метка с таким именем уже существует"
-
-#~ msgid "A task status with this name already exists"
-#~ msgstr "Статус задачи с таким именем уже существует"
-
-#~ msgid "Task updated successfully"
-#~ msgstr "Задача успешно изменена"
+#~ msgid "Your password must be at least 3 characters long."
+#~ msgstr "Ваш пароль должен содержать как минимум 3 символа."
