@@ -31,7 +31,7 @@ class UpdateStatusForm(UserChangeForm):
     def save(self, commit=True):
 
         status = Status.objects.get(id=self.status_id)
-        status.name = self.cleaned_data.get('Name')
+        status.name = self.cleaned_data.get('name')
         status.save()
         if hasattr(self, "save_m2m"):
             self.save_m2m()
