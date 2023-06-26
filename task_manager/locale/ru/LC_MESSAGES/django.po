@@ -39,7 +39,7 @@ msgstr "%(model_name)s с таким Имя уже существует."
 #: task_manager/labels/models.py:19 task_manager/tasks/filters.py:11
 #: task_manager/tasks/models.py:18
 msgid "Label"
-msgstr "Метки"
+msgstr "Метка"
 
 #: task_manager/labels/views.py:19 task_manager/labels/views.py:34
 #: task_manager/labels/views.py:73 task_manager/labels/views.py:104

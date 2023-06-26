@@ -15,7 +15,7 @@ class Task(models.Model):
                                  related_name='task_executor_user',
                                  verbose_name=gettext('Executor'),
                                  null=True, blank=True)
-    labels = models.ManyToManyField(Label, verbose_name=gettext('Label'),
+    labels = models.ManyToManyField(Label, verbose_name=gettext('Labels'),
                                     null=True, blank=True)
     description = models.TextField(verbose_name=gettext('Description'))
     name = models.CharField(max_length=250, verbose_name=gettext('Name'))
