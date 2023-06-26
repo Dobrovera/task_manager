@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-15 16:30+0300\n"
+"POT-Creation-Date: 2023-06-26 11:39+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -206,7 +206,7 @@ msgstr "Удалить"
 
 #: task_manager/templates/login.html:15 task_manager/templates/login.html:21
 #: task_manager/templates/navbar.html:68
-msgid "Log in"
+msgid "Login"
 msgstr "Вход"
 
 #: task_manager/templates/navbar.html:38
@@ -229,9 +229,7 @@ msgid "Tasks"
 msgstr "Задачи"
 
 #: task_manager/templates/navbar.html:63
-#, fuzzy
-#| msgid "Log Out"
-msgid "Log out"
+msgid "Logout"
 msgstr "Выход"
 
 #: task_manager/templates/navbar.html:71
@@ -339,6 +337,14 @@ msgstr "Невозможно удалить пользователя, потом
 #: task_manager/users/views.py:162
 msgid "User successfully updated"
 msgstr "Пользователь успешно изменен"
+
+#~ msgid "Log in"
+#~ msgstr "Вход"
+
+#, fuzzy
+#~| msgid "Log Out"
+#~ msgid "Log out"
+#~ msgstr "Выход"
 
 #~ msgid "A label with this name already exists"
 #~ msgstr "Метка с таким именем уже существует"
