@@ -42,7 +42,7 @@ class TaskUpdateForm(TaskCreateForm):
         labels = self.cleaned_data.get('labels')
         label_id_list = []
         for label in labels:
-            label_name = Label.objects.get(label_name=label)
+            label_name = Label.objects.get(name=label)
             label_id = label_name.id
             label_id_list.append(label_id)
         task.labels.set(label_id_list)
