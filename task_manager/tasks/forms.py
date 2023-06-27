@@ -39,14 +39,15 @@ class TaskUpdateForm(forms.ModelForm):
         task.status = self.cleaned_data.get('status')
         task.executor = self.cleaned_data.get('executor')
         task.save()
-        labels = self.cleaned_data.get('labels')
-        label_id_list = []
-        for label in labels:
-            label_name = Label.objects.get(label_name=label)
-            label_id = label_name.id
-            label_id_list.append(label_id)
-        task.labels.set(label_id_list)
-        task.save()
+        if self.cleaned_data.get('labels'):
+            labels = self.cleaned_data.get('labels')
+            label_id_list = []
+            for label in labels:
+                label_name = Label.objects.get(label_name=label)
+                label_id = label_name.id
+                label_id_list.append(label_id)
+            task.labels.set(label_id_list)
+            task.save()
         if hasattr(self, "save_m2m"):
             self.save_m2m()
         return task

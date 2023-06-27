@@ -76,7 +76,6 @@ class TaskUpdateView(View):
                 "description": task.description,
                 "status": task.status,
                 "executor": task.executor,
-                "labels": task.labels
             })
             return render(request, 'tasks/task_update.html',
                           context={
