@@ -13,7 +13,9 @@
     {% endfor %}
     {% endif %}
       <h1 class="my-4">{% trans 'Labels' %}</h1>
-      <a href="{% url 'create_label' %}">{% trans 'Create label' %}</a>
+      <a href="{% url 'create_label' %}" class="btn btn-success">{% trans 'Create label' %}</a>
+  <br>
+  <br>
         <table class="table table-striped">
           <thead class="thead-dark">
             <tr>
@@ -30,9 +32,8 @@
               <td>{{ label.name }}</td>
               <td>{{ label.created_at }}</td>
               <td>
-                <a href="{% url 'update_label' id=label.id%}">{% trans 'Update' %}</a>
-                    <br>
-                <a href="{% url 'delete_label' id=label.id%}">{% trans 'Delete' %}</a>
+                <a href="{% url 'update_label' id=label.id%}" class="btn btn-warning">{% trans 'Update' %}</a>
+                <a href="{% url 'delete_label' id=label.id%}" class="btn btn-danger">{% trans 'Delete' %}</a>
               </td>
             </tr>
           {% endfor %}

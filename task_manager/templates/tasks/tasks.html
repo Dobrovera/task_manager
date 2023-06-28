@@ -13,7 +13,9 @@
             {% endfor %}
         {% endif %}
         <h1 class="my-4">{% trans 'Tasks' %}</h1>
-        <a href="{% url 'create_task' %}">{% trans 'Create a task' %}</a>
+        <a href="{% url 'create_task' %}" class="btn btn-success">{% trans 'Create a task' %}</a>
+    <br>
+    <br>
         <div class="card mb-3">
             <div class="card-body bg-light">
                 <form class="form-inline center" method="get">
@@ -45,9 +47,8 @@
                     <td>{{ task.executor.first_name }} {{ task.executor.last_name }}</td>
                     <td>{{ task.created_at }}</td>
                     <td>
-                        <a href="{% url 'update_task' id=task.id %}">{% trans 'Update' %}</a>
-                        <br>
-                        <a href="{% url 'delete_task' id=task.id %}">{% trans 'Delete' %}</a>
+                        <a href="{% url 'update_task' id=task.id %}" class="btn btn-warning">{% trans 'Update' %}</a>
+                        <a href="{% url 'delete_task' id=task.id %}" class="btn btn-danger">{% trans 'Delete' %}</a>
                     </td>
                 </tr>
             {% endfor %}
