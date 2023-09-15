@@ -53,7 +53,7 @@ Detailed information on the task can be viewed on the task card
 At first, clone the repository:
 
 ```
-git clone https://github.com/Dobrovera/python-project-52
+git clone https://github.com/Dobrovera/task_manager
 ```
 
 Next, create .env file in the root folder. You need to write some variables in it:
